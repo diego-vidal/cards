@@ -40,16 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attribute.cs" />
+    <Compile Include="Characteristic.cs" />
+    <Compile Include="CharacteristicKey.cs" />
     <Compile Include="Booster.cs" />
+    <Compile Include="BoosterKey.cs" />
     <Compile Include="Card.cs" />
-    <Compile Include="CardAttribute.cs" />
+    <Compile Include="CardCharacteristic.cs" />
     <Compile Include="CardPhase.cs" />
-    <Compile Include="CardType.cs" />
+    <Compile Include="CardKind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rarity.cs" />
-    <Compile Include="Type.cs" />
+    <Compile Include="RarityKey.cs" />
+    <Compile Include="Kind.cs" />
+    <Compile Include="KindKey.cs" />
     <Compile Include="World.cs" />
+    <Compile Include="WorldKey.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

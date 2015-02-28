@@ -26,11 +26,11 @@ namespace Spellfire.Web.Controllers
 
         public ActionResult List(string searchText)
         {
-            var cards = _dal.Cards.GetByName(searchText, x => x.CardTypes, x => x.Booster);
+            var cards = _dal.Cards.GetByName(searchText, x => x.CardKinds, x => x.Booster);
             var filteredCards = cards.Take(10);
 
             foreach(var card in filteredCards){
-                _dal.Cards.LoadCollection(card, c => c.CardTypes, null, c => c.Type);
+                _dal.Cards.LoadCollection(card, c => c.CardKinds, null, c => c.Kind);
             }
 
             var viewModel = new HomeViewModel()
@@ -51,8 +51,8 @@ namespace Spellfire.Web.Controllers
             _dal.Cards.LoadProperty(card, c => c.Rarity);
             _dal.Cards.LoadProperty(card, c => c.World);
 
-            _dal.Cards.LoadCollection(card, c => c.CardAttributes, null, c => c.Attribute);
-            _dal.Cards.LoadCollection(card, c => c.CardTypes, null, c => c.Type);
+            _dal.Cards.LoadCollection(card, c => c.CardCharacteristics, null, c => c.Characteristic);
+            _dal.Cards.LoadCollection(card, c => c.CardKinds, null, c => c.Kind);
             _dal.Cards.LoadCollection(card, c => c.CardPhases);
 
             var viewModel = new HomeViewModel()

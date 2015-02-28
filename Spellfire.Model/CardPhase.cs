@@ -1,16 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Spellfire.Model
 {
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    [Table("CardPhase")]
-    public partial class CardPhase
+    public class CardPhase
     {
-        public int CardPhaseId { get; set; }
-
-        public int CardId { get; set; }
+        [Key]
+        public int CardPhaseKey { get; set; }
+        public int CardKey { get; set; }
 
         public byte Number { get; set; }
 
-        public virtual Card Card { get; set; }
+        // Navigation
+        public Card Card { get; set; }
     }
 }

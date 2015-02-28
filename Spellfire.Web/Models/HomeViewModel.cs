@@ -21,14 +21,14 @@ namespace Spellfire.Web.Models
         {
             get
             {
-                return string.Join(", ", SelectedCard.CardTypes.Select(x => x.Type.Name).ToArray());
+                return string.Join(", ", SelectedCard.CardKinds.Select(x => x.Kind.Name).ToArray());
             }
         }
         public string GetAttributesCsv
         {
             get
             {
-                return string.Join(", ", SelectedCard.CardAttributes.Select(x => x.Attribute.Name).ToArray());
+                return string.Join(", ", SelectedCard.CardCharacteristics.Select(x => x.Characteristic.Name).ToArray());
             }
         }
         public string GetPhasesCsv
@@ -42,8 +42,8 @@ namespace Spellfire.Web.Models
         {
             get
             {
-                var cardType = SelectedCard.CardTypes.Where(x => x.IsIcon).SingleOrDefault();
-                var icon = cardType != null && cardType.Type != null ? cardType.Type.Icon : "blank.gif";
+                var cardType = SelectedCard.CardKinds.Where(x => x.IsIcon).SingleOrDefault();
+                var icon = cardType != null && cardType.Kind != null ? cardType.Kind.Icon : "blank.gif";
 
                 return icon;
             }

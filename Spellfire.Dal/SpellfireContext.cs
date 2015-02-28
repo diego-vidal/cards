@@ -1,9 +1,12 @@
 namespace Spellfire.Dal
 {
     using Spellfire.Model;
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Validation;
     using System.Linq;
+    using System.Linq.Expressions;
+    using System.Reflection;
 
     public partial class SpellfireContext : DbContext, IUnitOfWork
     {
@@ -19,81 +22,40 @@ namespace Spellfire.Dal
             Configuration.ProxyCreationEnabled = false;
         }
 
-        public virtual DbSet<Spellfire.Model.Attribute> Attributes { get; set; }
-        public virtual DbSet<Booster> Boosters { get; set; }
-        public virtual DbSet<Card> Cards { get; set; }
-        public virtual DbSet<CardAttribute> CardAttributes { get; set; }
-        public virtual DbSet<CardPhase> CardPhases { get; set; }
-        public virtual DbSet<CardType> CardTypes { get; set; }
-        public virtual DbSet<Rarity> Rarities { get; set; }
-        public virtual DbSet<Spellfire.Model.Type> Types { get; set; }
-        public virtual DbSet<World> Worlds { get; set; }
+        public DbSet<Booster> Boosters { get; set; }
+        public DbSet<Card> Cards { get; set; }
+        public DbSet<Characteristic> Characteristics { get; set; }
+        public DbSet<CardCharacteristic> CardCharacteristics { get; set; }
+        public DbSet<CardPhase> CardPhases { get; set; }
+        public DbSet<CardKind> CardKinds { get; set; }
+        public DbSet<Kind> Kinds { get; set; }
+        public DbSet<Rarity> Rarities { get; set; }
+        public DbSet<World> Worlds { get; set; }
 
+        /// <summary>
+        /// This method is called when the model for a derived context has been initialized, but before the model has
+        /// been locked down and used to initialize the context. The default implementation of this method does nothing,
+        /// but it can be overridden in a derived class such that the model can be further configured before it is
+        /// locked down.
+        /// </summary>
+        /// <remarks>
+        /// Typically, this method is called only once when the first instance of a derived context is created. The
+        /// model for that context is then cached and is for all further instances of the context in the app domain.
+        /// This caching can be disabled by setting the ModelCaching property on the given <c>ModelBuilder</c>, but note
+        /// that this can seriously degrade performance. More control over caching is provided through use of the
+        /// <c>DbModelBuilder</c> and <c>DbContextFactory</c> classes directly.
+        /// </remarks>
+        /// <param name="modelBuilder">The builder that defines the model for the context being created.</param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Spellfire.Model.Attribute>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
+            modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
 
-            modelBuilder.Entity<Booster>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Booster>()
-                .Property(e => e.Abbreviation)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Booster>()
-                .Property(e => e.ImageName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Card>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Card>()
-                .Property(e => e.Power)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Card>()
-                .Property(e => e.Blueline)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Card>()
-                .Property(e => e.Level)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Card>()
-                .Property(e => e.ImageName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Rarity>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Rarity>()
-                .Property(e => e.Abbreviation)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Spellfire.Model.Type>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Spellfire.Model.Type>()
-                .Property(e => e.Icon)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<World>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<World>()
-                .Property(e => e.Abbreviation)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<World>()
-                .Property(e => e.ImageName)
-                .IsUnicode(false);
+            // set initializer to null for this class and any potential subclass
+            Expression<Action> setInitializerExpression = () => Database.SetInitializer<SpellfireContext>(null);
+            var setInitializerCall = (MethodCallExpression)setInitializerExpression.Body;
+            var setInitializerMethodInfo =
+                setInitializerCall.Method.GetGenericMethodDefinition().MakeGenericMethod(GetType());
+            setInitializerMethodInfo.Invoke(null, new object[] { null });
         }
 
         /// <summary>
