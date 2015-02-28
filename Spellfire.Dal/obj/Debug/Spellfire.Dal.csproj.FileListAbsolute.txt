@@ -12,5 +12,5 @@ C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Dal\bin\Debug\EntityFramework.Sq
 C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Dal\obj\Debug\Spellfire.Dal.csprojResolveAssemblyReference.cache
 C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Dal\obj\Debug\Spellfire.Dal.dll
 C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Dal\obj\Debug\Spellfire.Dal.pdb
-C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Dal\obj\Debug\Spellfire.Dal.Initital.resources
+C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Dal\obj\Debug\Spellfire.Dal.CreateDatabase.resources
 C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Dal\obj\Debug\Spellfire.Dal.csproj.GenerateResource.Cache

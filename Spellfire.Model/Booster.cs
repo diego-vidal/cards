@@ -8,11 +8,9 @@ namespace Spellfire.Model
         [Key]
         public BoosterKey BoosterKey { get; set; }
 
-        [Required]
-        [StringLength(32)]
+        [Required, StringLength(32)]
         public string Name { get; set; }
-        [Required]
-        [StringLength(4)]
+        [Required, StringLength(3)]
         public string ShortName { get; set; }
         [StringLength(32)]
         public string ImagePath { get; set; }

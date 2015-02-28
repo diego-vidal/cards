@@ -43,7 +43,7 @@ namespace Spellfire.Web.Models
             get
             {
                 var cardType = SelectedCard.CardKinds.Where(x => x.IsIcon).SingleOrDefault();
-                var icon = cardType != null && cardType.Kind != null ? cardType.Kind.Icon : "blank.gif";
+                var icon = cardType != null && cardType.Kind != null ? cardType.Kind.IconPath : "blank.gif";
 
                 return icon;
             }

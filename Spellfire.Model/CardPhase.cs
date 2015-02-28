@@ -6,11 +6,12 @@ namespace Spellfire.Model
     {
         [Key]
         public int CardPhaseKey { get; set; }
-        public int CardKey { get; set; }
 
+        [Required]
         public byte Number { get; set; }
 
         // Navigation
+        public int CardKey { get; set; }
         public Card Card { get; set; }
     }
 }

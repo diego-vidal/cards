@@ -2,3 +2,4 @@ C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Model\bin\Debug\Spellfire.Model.
 C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Model\bin\Debug\Spellfire.Model.pdb
 C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Model\obj\Debug\Spellfire.Model.dll
 C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Model\obj\Debug\Spellfire.Model.pdb
+C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Model\obj\Debug\Spellfire.Model.csprojResolveAssemblyReference.cache

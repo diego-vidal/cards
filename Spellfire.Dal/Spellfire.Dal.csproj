@@ -47,9 +47,9 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="Interfaces\ICardRepository .cs" />
-    <Compile Include="Migrations\201502282035286_Initital.cs" />
-    <Compile Include="Migrations\201502282035286_Initital.Designer.cs">
-      <DependentUpon>201502282035286_Initital.cs</DependentUpon>
+    <Compile Include="Migrations\201502282136362_CreateDatabase.cs" />
+    <Compile Include="Migrations\201502282136362_CreateDatabase.Designer.cs">
+      <DependentUpon>201502282136362_CreateDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CardRepository.cs" />
     <Compile Include="DataAccess.cs" />
@@ -78,8 +78,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201502282035286_Initital.resx">
-      <DependentUpon>201502282035286_Initital.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201502282136362_CreateDatabase.resx">
+      <DependentUpon>201502282136362_CreateDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

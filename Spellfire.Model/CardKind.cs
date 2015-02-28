@@ -6,13 +6,15 @@ namespace Spellfire.Model
     {
         [Key]
         public int CardKindKey { get; set; }
-        public int CardKey { get; set; }
-        public KindKey KindKey { get; set; }
 
+        [Required]
         public bool IsIcon { get; set; }
 
         // Navigation
+        public int CardKey { get; set; }
         public Card Card { get; set; }
+
+        public KindKey KindKey { get; set; }
         public Kind Kind { get; set; }
     }
 }

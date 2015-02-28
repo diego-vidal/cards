@@ -7,13 +7,13 @@ namespace Spellfire.Dal
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class Initital : IMigrationMetadata
+    public sealed partial class CreateDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initital));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201502282035286_Initital"; }
+            get { return "201502282136362_CreateDatabase"; }
         }
         
         string IMigrationMetadata.Source

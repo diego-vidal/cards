@@ -7,8 +7,7 @@ namespace Spellfire.Model
         [Key]
         public CharacteristicKey CharacteristicKey { get; set; }
 
-        [Required]
-        [StringLength(32)]
+        [Required, StringLength(32)]
         public string Name { get; set; }
     }
 }

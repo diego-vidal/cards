@@ -7,11 +7,9 @@ namespace Spellfire.Model
         [Key]
         public KindKey KindKey { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required, StringLength(32)]
         public string Name { get; set; }
-        [Required]
-        [StringLength(25)]
-        public string Icon { get; set; }
+        [Required, StringLength(32)]
+        public string IconPath { get; set; }
     }
 }
