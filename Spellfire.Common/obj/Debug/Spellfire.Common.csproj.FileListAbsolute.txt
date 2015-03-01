@@ -1,4 +1,0 @@
-C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Common\bin\Debug\Spellfire.Common.dll
-C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Common\bin\Debug\Spellfire.Common.pdb
-C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Common\obj\Debug\Spellfire.Common.dll
-C:\Users\DIEGO\Documents\GitHub\cards\Spellfire.Common\obj\Debug\Spellfire.Common.pdb
