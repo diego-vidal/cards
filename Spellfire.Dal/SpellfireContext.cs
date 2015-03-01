@@ -52,9 +52,10 @@ namespace Spellfire.Dal
 
             // set initializer to null for this class and any potential subclass
             Expression<Action> setInitializerExpression = () => Database.SetInitializer<SpellfireContext>(null);
+
             var setInitializerCall = (MethodCallExpression)setInitializerExpression.Body;
-            var setInitializerMethodInfo =
-                setInitializerCall.Method.GetGenericMethodDefinition().MakeGenericMethod(GetType());
+            var setInitializerMethodInfo = setInitializerCall.Method.GetGenericMethodDefinition().MakeGenericMethod(GetType());
+
             setInitializerMethodInfo.Invoke(null, new object[] { null });
         }
 

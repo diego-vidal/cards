@@ -38,5 +38,12 @@ namespace Spellfire.Model
 
         public WorldKey WorldKey { get; set; }
         public World World { get; set; }
+
+        public Card()
+        {
+            CardCharacteristics = new List<CardCharacteristic>();
+            CardKinds = new List<CardKind>();
+            CardPhases = new List<CardPhase>();
+        }
     }
 }
