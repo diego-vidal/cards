@@ -29,13 +29,13 @@
     </div>
     <div class="cardTitle">
         <div class="cardWorld pull-left">
-            <img src="~/Content/Images/worlds/@c.World.ImageName" alt=""/>
+            <img src="~/Content/Images/worlds/@c.World.ImagePath" alt=""/>
         </div>
         <div class="cardName pull-right">@c.Name</div>
     </div>
     <div class="cardPower @powerClass">@c.Power <span style="color: blue;">@c.Blueline</span></div>
     <div class="cardFooter">
-        <div class="cardRarity pull-left">@c.Rarity.Abbreviation</div>
+        <div class="cardRarity pull-left">@c.Rarity.ShortName</div>
         <div class="cardBooster pull-left">@c.Booster.Name
             @*<img src="~/Content/Images/worlds/add.gif" alt="" />*@
         </div>

@@ -14,7 +14,7 @@
     @foreach (var c in Model.SortedCards)
     {
         var cardType = c.CardKinds.Where(x => x.IsIcon).SingleOrDefault();
-        var icon = cardType != null && cardType.Kind != null ? cardType.Kind.Icon : "blank.gif";
+        var icon = cardType != null && cardType.Kind != null ? cardType.Kind.IconPath : "blank.gif";
         
         <a href="#" class="selectable list-group-item" data-sequence="@c.SequenceNumber">
             <img src="~/Content/Images/icons/small/@icon" alt=""/>
