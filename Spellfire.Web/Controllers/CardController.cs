@@ -18,7 +18,7 @@ namespace Spellfire.Web.Controllers
         {
             var viewModel = new HomeViewModel()
             {
-                SearchText = searchText ?? "law",
+                SearchText = searchText ?? "spellfire",
             };
 
             return View(viewModel);

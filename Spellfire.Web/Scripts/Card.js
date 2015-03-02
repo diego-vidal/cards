@@ -4,10 +4,15 @@
 
 $(document).ready(function () {
 
+    var $reboot = $("#reboot");
     var $search = $("#search");
     var $searchText = $("#SearchText");
     var $cardList = $("#cardList");
     var $cardDetail = $("#cardDetail");
+
+    $reboot.on("click", function () {
+        window.location.href = "/Spellfire";
+    });
 
     $cardList.on("click", "a.selectable", function () {
 
@@ -16,7 +21,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "/Card/Details/" + sequence,
+            url: "Spellfire/Card/Details/" + sequence,
             data: { id: sequence, searchText: searchText },
             cache: false
         })
@@ -36,7 +41,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "/Card/List",
+            url: "Spellfire/Card/List",
             data: { searchText: searchText },
             cache: true
         })
