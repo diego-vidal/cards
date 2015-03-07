@@ -1,5 +1,18 @@
-﻿$(document)
-    .ajaxStart($.blockUI)
+﻿$.blockUI.defaults.css = {
+    padding: 0,
+    margin: 0,
+    width: '30%',
+    top: '40%',
+    left: '35%',
+    textAlign: 'center',
+    color: '#000',
+    /*border: '3px solid #aaa',*/
+    backgroundColor: '#fff',
+    cursor: 'wait'
+};
+
+$(document)
+    .ajaxStart($.blockUI({ message: '<img src="/Content/Images/busy.png" class="spin-infinite" alt="" height="100" width="100" />' }))
     .ajaxStop($.unblockUI);
 
 $(document).ready(function () {
