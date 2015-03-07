@@ -50,6 +50,7 @@ build/
 # Diego
 *.dll
 *.pdb
+*.config
 
 # Visual Studio profiler
 *.psess
