@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Page Not Found!";
+}
+<br />
+<div class="alert alert-danger">Page not found!</div>
+<div class="alert alert-warning">
+    <b>URL:</b> @Request.QueryString[0]
+    <br />
+    <b>Timestamp:</b>  @DateTimeOffset.Now
+</div>
+
+<a class="btn btn-small btn-primary" href="/spellfire">Back Home</a>
+

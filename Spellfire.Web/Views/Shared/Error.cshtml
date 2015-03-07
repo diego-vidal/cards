@@ -1,0 +1,60 @@
+﻿@using Spellfire.Common
+@model System.Web.Mvc.HandleErrorInfo
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = "Error";
+
+    var message = "The Model is null";
+    var exceptionType = "The Exception is null";
+    var controller = string.Empty;
+    var action = string.Empty;
+    var showDetails = Request.IsLocal;  //Show details for Developers ONLY
+
+    if (Model != null)
+    {
+        controller = Model.ControllerName;
+        action = Model.ActionName;
+
+        if (Model.Exception != null)
+        {
+            exceptionType = Model.Exception.GetType().Name;
+            message = Model.Exception.GetFullMessage();
+        }
+    }
+}
+<div class="alert alert-error">
+    <div class="alert alert-danger">
+        <p>Oops! There was a problem processing your request on @DateTimeOffset.Now</p>
+        <p><b>Please take try again.</b></p>
+    </div>
+
+    @if (showDetails)
+    {
+        <div class="alert alert-warning">
+            <table class="table table-responsive table-borderless">
+                <tr>
+                    <td><b>Controller</b></td>
+                    <td>@controller</td>
+                </tr>
+                <tr>
+                    <td><b>Action</b></td>
+                    <td>@action</td>
+                </tr>
+                <tr>
+                    <td><b>Type</b></td>
+                    <td>@exceptionType</td>
+                </tr>
+                <tr>
+                    <td><b>Exception</b></td>
+                    <td>@message</td>
+                </tr>
+            </table>
+        </div>
+    }
+
+    <div class="alert-actions">
+        <a class="btn btn-small btn-primary" href="/spellfire">Back to Home</a>
+        &nbsp;&nbsp;
+        <a class="btn btn-small btn-primary" href="javascript: history.go(-1)">Previous Page</a>
+    </div>
+</div>

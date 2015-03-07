@@ -14,6 +14,12 @@ namespace Spellfire.Web
                 url: "Spellfire/{controller}/{action}/{id}",
                 defaults: new { controller = "Card", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                "NotFound",
+                "NotFound/{action}/{id}",
+                new { controller = "Error", action = "NotFound", id = UrlParameter.Optional }
+            );
         }
     }
 }

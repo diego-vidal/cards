@@ -2,6 +2,7 @@
 using Spellfire.Web.Models;
 using System.Web.Mvc;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Spellfire.Web.Controllers
 {

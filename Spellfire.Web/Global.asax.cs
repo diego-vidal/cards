@@ -34,6 +34,7 @@ namespace Spellfire.Web
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             // Autofac (IoC) registration
             var container = AutofacConfig.Register(GlobalConfiguration.Configuration);
