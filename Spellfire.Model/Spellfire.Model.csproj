@@ -48,6 +48,7 @@
     <Compile Include="CardCharacteristic.cs" />
     <Compile Include="CardPhase.cs" />
     <Compile Include="CardKind.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rarity.cs" />
     <Compile Include="RarityKey.cs" />

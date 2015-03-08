@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellfire.Web", "Spellfire.Web\Spellfire.Web.csproj", "{DA4833BF-9151-48B1-A2B7-A0470A85275A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellfire.Tests", "Spellfire.Tests\Spellfire.Tests.csproj", "{92A62768-A49D-468F-9F0C-B9D5110D3B16}"
@@ -12,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellfire.Common", "Spellfire.Common\Spellfire.Common.csproj", "{AA89EAEB-69A5-4C53-8934-26991F34FA73}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellfire.Model", "Spellfire.Model\Spellfire.Model.csproj", "{0D24E6BE-01C7-4997-B7BB-152B133316A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellfire.Logging", "Spellfire.Log\Spellfire.Logging.csproj", "{91CCD22C-7163-4663-958C-F5A0C198B205}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +39,10 @@ Global
 		{0D24E6BE-01C7-4997-B7BB-152B133316A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D24E6BE-01C7-4997-B7BB-152B133316A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D24E6BE-01C7-4997-B7BB-152B133316A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91CCD22C-7163-4663-958C-F5A0C198B205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91CCD22C-7163-4663-958C-F5A0C198B205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91CCD22C-7163-4663-958C-F5A0C198B205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91CCD22C-7163-4663-958C-F5A0C198B205}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

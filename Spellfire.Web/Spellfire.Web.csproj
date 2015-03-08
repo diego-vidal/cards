@@ -254,6 +254,10 @@
       <Project>{72620fc0-efed-48fa-87da-26afc9d52d17}</Project>
       <Name>Spellfire.Dal</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Spellfire.Log\Spellfire.Logging.csproj">
+      <Project>{91ccd22c-7163-4663-958c-f5a0c198b205}</Project>
+      <Name>Spellfire.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Spellfire.Model\Spellfire.Model.csproj">
       <Project>{0d24e6be-01c7-4997-b7bb-152b133316a1}</Project>
       <Name>Spellfire.Model</Name>

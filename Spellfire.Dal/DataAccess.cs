@@ -34,11 +34,17 @@ namespace Spellfire.Dal
             get { return CardsInitializer.Value; }
         }
 
+        public ILogRepository Logs
+        {
+            get { return LogsInitializer.Value; }
+        }
+
         #endregion
         
         #region Repository Initializers
 
         public Lazy<ICardRepository> CardsInitializer { get; set; }
+        public Lazy<ILogRepository> LogsInitializer { get; set; }
 
         #endregion
 

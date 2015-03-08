@@ -42,7 +42,6 @@ $(document).ready(function () {
             alert(errorThrown);
         })
         .done(function (html) {
-
             $cardDetail.html(html);
         });
     });
