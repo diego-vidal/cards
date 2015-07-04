@@ -12,7 +12,7 @@
 };
 
 $(document)
-    .ajaxStart($.blockUI({ message: '<img src="/Images/busy.png" class="spin-infinite" alt="" height="100" width="100" />' }))
+    .ajaxStart($.blockUI({ message: '<img src="/Images/tsr.png" class="spin-infinite" alt="" height="100" width="100" />' }))
     .ajaxStop($.unblockUI);
 
 $(document).ready(function () {
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
     $searchText.keypress(function (e) {
 
-        var code = e.which;
+        var code = e.keycode ? e.keycode : e.which;
 
         if (code == 13) { //ENTER
             e.preventDefault();
