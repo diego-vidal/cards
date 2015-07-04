@@ -31,6 +31,8 @@ $(document).ready(function () {
         var sequence = $(this).data("sequence");
         var searchText = $searchText.val();
 
+        $.blockUI({ message: '<img src="/Images/tsr.png" class="spin-infinite" alt="" height="100" width="100" />' })
+
         $.ajax({
             type: "GET",
             url: "Spellfire/Card/Details/" + sequence,
@@ -42,6 +44,9 @@ $(document).ready(function () {
         })
         .done(function (html) {
             $cardDetail.html(html);
+        })
+        .always(function () {
+            $.unblockUI();
         });
     });
 
