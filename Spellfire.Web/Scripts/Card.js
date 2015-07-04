@@ -12,7 +12,7 @@
 };
 
 $(document)
-    .ajaxStart($.blockUI({ message: '<img src="/Content/Images/busy.png" class="spin-infinite" alt="" height="100" width="100" />' }))
+    .ajaxStart($.blockUI({ message: '<img src="/Images/busy.png" class="spin-infinite" alt="" height="100" width="100" />' }))
     .ajaxStop($.unblockUI);
 
 $(document).ready(function () {

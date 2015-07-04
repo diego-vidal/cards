@@ -16,7 +16,7 @@
         var icon = cardType != null && cardType.Kind != null ? cardType.Kind.IconPath : "blank.gif";
         
         <a href="#" class="selectable list-group-item" data-sequence="@c.SequenceNumber">
-            <img src="~/Content/Images/icons/small/@icon" alt=""/>
+            <img src="~/Images/icons/small/@icon" alt=""/>
             [@c.Booster.ShortName] @c.Name </a>
     }
     @if (Model.SearchCount > Model.FilteredCards.Count())

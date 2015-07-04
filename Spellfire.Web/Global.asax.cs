@@ -30,7 +30,7 @@ namespace Spellfire.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
@@ -58,7 +58,8 @@ namespace Spellfire.Web
                     return;
 
                 //Redirect HTTP errors to HttpError page
-                Server.Transfer("HttpErrorPage.aspx");
+                //Server.Transfer("HttpErrorPage.aspx");
+                HttpContext.Current.RewritePath("HttpErrorPage.aspx");
             }
 
             string username = HttpContext.Current.User.Identity.Name; 

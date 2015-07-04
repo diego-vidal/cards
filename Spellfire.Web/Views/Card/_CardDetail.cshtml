@@ -15,7 +15,8 @@
     var nextId = c.SequenceNumber >= totalCards ? 1 : c.SequenceNumber + 1;
     var prevId = c.SequenceNumber <= 1 ? totalCards : c.SequenceNumber - 1;
     var bluelineLength = c.Blueline != null ? c.Blueline.Length : 0;
-    var powerClass = c.Power.Length + bluelineLength > 320 ? "longText" : string.Empty;
+    var powerLength = c.Power.Length + bluelineLength;
+    var powerClass = powerLength > 498 ? "text-small" : (powerLength > 324 ? "text-medium" : string.Empty);
 
     ViewBag.Title = c.Name;
 }
@@ -23,13 +24,13 @@
 <div id="card" style="width: 300px;">
     <div class="cardHeader">
         <div class="cardIcon pull-left">
-            <img src="~/Content/Images/icons/@Model.GetIcon" alt=""/>
+            <img src="~/Images/icons/@Model.GetIcon" alt="" />
         </div>
         <div class="cardLevel pull-right">@c.Level</div>
     </div>
     <div class="cardTitle">
         <div class="cardWorld pull-left">
-            <img src="~/Content/Images/worlds/@c.World.ImagePath" alt=""/>
+            <img src="~/Images/worlds/@c.World.ImagePath" alt="" />
         </div>
         <div class="cardName pull-right">@c.Name</div>
     </div>
@@ -37,9 +38,10 @@
     <div class="cardFooter">
         <div class="cardRarity pull-left">@c.Rarity.ShortName</div>
         <div class="cardBooster pull-left">@c.Booster.Name
-            @*<img src="~/Content/Images/worlds/add.gif" alt="" />*@
+            @*<img src="~/Images/worlds/add.gif" alt="" />*@
         </div>
         <div class="cardNumber pull-right">@c.Number of @c.NumberSet</div>
+        <div class="clear-both"></div>
     </div>
 </div>
 @*<div style="width: 300px;">
