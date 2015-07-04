@@ -9,7 +9,7 @@
 <div id="resultsMessage">
     @cardCountMessage
 </div>
-<div class="list-group">
+<div id="cardResults" class="list-group">
     @foreach (var c in Model.SortedCards)
     {
         var cardType = c.CardKinds.Where(x => x.IsIcon).SingleOrDefault();
@@ -17,7 +17,7 @@
         
         <a href="#" class="selectable list-group-item" data-sequence="@c.SequenceNumber">
             <img src="~/Images/icons/small/@icon" alt=""/>
-            [@c.Booster.ShortName] @c.Name </a>
+            [@c.Booster.ShortName] @c.Name</a>
     }
     @if (Model.SearchCount > Model.FilteredCards.Count())
     {

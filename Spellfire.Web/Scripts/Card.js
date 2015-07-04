@@ -1,90 +1,111 @@
-﻿$.blockUI.defaults.css = {
-    padding: 0,
-    margin: 0,
-    width: '30%',
-    top: '40%',
-    left: '35%',
-    textAlign: 'center',
-    color: '#000',
-    backgroundColor: '#fff',
-    cursor: 'wait'
-};
+﻿var Spellfire = window.Spellfire = window.Spellfire || {};
 
-$(document)
-    .ajaxStart($.blockUI({ message: '<img src="/Images/tsr.png" class="spin-infinite" alt="" height="100" width="100" />' }))
-    .ajaxStop($.unblockUI);
+Spellfire.Card =
+    (function (module, $) {
 
-$(document).ready(function () {
+        "use strict";
 
-    var $reboot = $("#reboot");
-    var $search = $("#search");
-    var $searchText = $("#SearchText");
-    var $cardList = $("#cardList");
-    var $cardDetail = $("#cardDetail");
+        // Public
+        module.init = function () {
 
-    $reboot.on("click", function () {
-        window.location.href = "/Spellfire";
-    });
+            self.initilizeVariables();
+            self.attachHandlers();
 
-    $cardList.on("click", "a.selectable", function () {
+            self.$search.click();
+        };
 
-        var sequence = $(this).data("sequence");
-        var searchText = $searchText.val();
+        // Private
+        var self = {
 
-        $.blockUI({ message: '<img src="/Images/tsr.png" class="spin-infinite" alt="" height="100" width="100" />' })
+            initilizeVariables: function () {
 
-        $.ajax({
-            type: "GET",
-            url: "Spellfire/Card/Details/" + sequence,
-            data: { id: sequence, searchText: searchText },
-            cache: false
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
-        })
-        .done(function (html) {
-            $cardDetail.html(html);
-        })
-        .always(function () {
-            $.unblockUI();
-        });
-    });
+                self.$logo = $("#logo");
+                self.$container = $("#container");
+                self.$search = $("#search");
+                self.$searchText = $("#SearchText");
+                self.$cardList = $("#cardList");
+                self.$cardDetail = $("#cardDetail");
+            },
 
-    $search.click(function () {
+            attachHandlers: function () {
 
-        $cardDetail.html("");
-        var searchText = $searchText.val();
+                self.$logo.on("click", self.redirectHome);
+                self.$search.click(self.getCardList);
+                self.$cardList.on("click", "a.selectable", self.getCardDetails);
+                self.$searchText.keypress(self.searchOnEnter);
+            },
 
-        $.blockUI({ message: '<img src="/Images/tsr.png" class="spin-infinite" alt="" height="100" width="100" />' })
+            redirectHome: function () {
+                window.location.href = "/Spellfire";
+            },
 
-        $.ajax({
-            type: "GET",
-            url: "Spellfire/Card/List",
-            data: { searchText: searchText },
-            cache: true
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
-        })
-        .done(function (html) {
+            getCardDetails: function () {
 
-            $cardList.html(html);
-        })
-        .always(function () {
-            $.unblockUI();
-        });
-    });
+                var sequence = $(this).data("sequence");
+                var searchText = self.$searchText.val();
 
-    $searchText.keypress(function (e) {
+                Spellfire.Notification.show();
 
-        var code = e.keycode ? e.keycode : e.which;
+                $.ajax({
+                    type: "GET",
+                    url: "Spellfire/Card/Details/",
+                    data: { id: sequence, searchText: searchText },
+                    cache: false
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                })
+                .done(function (html) {
+                    self.$cardDetail.html(html);
+                })
+                .always(function () {
+                    Spellfire.Notification.hide();
+                });
+            },
 
-        if (code == 13) { //ENTER
-            e.preventDefault();
-            $search.click();
-        }
-    });
+            getCardList: function () {
 
-    $search.click();
+                self.$cardDetail.html("");
+                var searchText = self.$searchText.val();
 
-});
+                Spellfire.Notification.show();
+
+                $.ajax({
+                    type: "GET",
+                    url: "Spellfire/Card/List",
+                    data: { searchText: searchText },
+                    cache: true
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                })
+                .done(function (html) {
+
+                    self.$cardList.html(html);
+                    self.selectFirstResult();
+                })
+                .always(function () {
+
+                    Spellfire.Notification.hide();
+                });
+            },
+
+            searchOnEnter: function (e) {
+
+                var code = e.keycode ? e.keycode : e.which;
+
+                if (code == 13) { //ENTER
+                    e.preventDefault();
+                    self.$search.click();
+                }
+            },
+
+            selectFirstResult: function () {
+
+                $("#cardResults .selectable").first().click();
+            }
+        };
+
+        return module;
+
+    })(Spellfire.Card || {}, window.jQuery);

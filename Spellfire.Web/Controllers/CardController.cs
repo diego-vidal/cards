@@ -7,6 +7,7 @@ namespace Spellfire.Web.Controllers
 {
     public class CardController : BaseController
     {
+        private const int MaxCardListCount = 10;
         private IDataAccess _dal;
 
         public CardController(IDataAccess dal)
@@ -27,9 +28,10 @@ namespace Spellfire.Web.Controllers
         public ActionResult List(string searchText)
         {
             var cards = _dal.Cards.GetByName(searchText, x => x.CardKinds, x => x.Booster);
-            var filteredCards = cards.Take(10);
+            var filteredCards = cards.Take(MaxCardListCount);
 
-            foreach(var card in filteredCards){
+            foreach (var card in filteredCards)
+            {
                 _dal.Cards.LoadCollection(card, c => c.CardKinds, null, c => c.Kind);
             }
 

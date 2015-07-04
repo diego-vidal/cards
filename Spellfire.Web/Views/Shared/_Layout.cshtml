@@ -10,9 +10,9 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <link href="~/css/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/Card.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/common.css" rel="stylesheet" type="text/css" />
     <link href="~/css/css3.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/card.css" rel="stylesheet" type="text/css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>*@
-                <div id="reboot" class="navbar-brand">
+                <div id="logo" class="navbar-brand">
                     <img src="~/Images/spellfire.gif" class="logo" />
                 </div>
             </div>
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="container body-content">
+    <div id="container" class="container body-content">
         @RenderBody()
         @*        
         <hr />
@@ -51,6 +51,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.66.0-2013.10.09/jquery.blockUI.min.js"></script>
 
-    <script src="~/Scripts/Card.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    <script src="~/Scripts/notification.js"></script>
+    <script src="~/Scripts/card.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            Spellfire.Notification.init();
+        });
+    </script>
+
+    @RenderSection("Scripts", false);
 </body>
 </html>

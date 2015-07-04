@@ -114,7 +114,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\Card.css" />
+    <Content Include="css\card.css" />
     <Content Include="css\css3.css" />
     <Content Include="Images\tsr.png" />
     <Content Include="Images\spellfire.gif" />
@@ -126,7 +126,7 @@
     <Content Include="Error.html" />
     <Content Include="Images\worlds\rl.gif" />
     <Content Include="robots.txt" />
-    <Content Include="Scripts\Card.js" />
+    <Content Include="Scripts\card.js" />
     <Content Include="Images\icons\ally.gif" />
     <Content Include="Images\icons\artifact.gif" />
     <Content Include="Images\icons\blank.gif" />
@@ -174,11 +174,13 @@
     <Content Include="Images\worlds\dr.png" />
     <Content Include="Images\worlds\gh.gif" />
     <Content Include="Images\worlds\ns.png" />
-    <Content Include="css\Site.css" />
+    <Content Include="css\common.css" />
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\godaddy.pubxml">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\notification.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
