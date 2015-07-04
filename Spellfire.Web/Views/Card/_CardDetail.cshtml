@@ -2,7 +2,9 @@
 @model Spellfire.Web.Models.HomeViewModel
 
 @{
-    if (Model.SelectedCard == null)
+    var card = Model.SelectedCard;
+
+    if (card == null)
     {
     <div style="padding-top: 10px;">
         <span style="color: red;">No card was found!</span>
@@ -10,41 +12,40 @@
         return;
     }
 
-    var c = Model.SelectedCard;
     var totalCards = 3919;
-    var nextId = c.SequenceNumber >= totalCards ? 1 : c.SequenceNumber + 1;
-    var prevId = c.SequenceNumber <= 1 ? totalCards : c.SequenceNumber - 1;
-    var bluelineLength = c.Blueline != null ? c.Blueline.Length : 0;
-    var powerLength = c.Power.Length + bluelineLength;
+    var nextId = card.SequenceNumber >= totalCards ? 1 : card.SequenceNumber + 1;
+    var prevId = card.SequenceNumber <= 1 ? totalCards : card.SequenceNumber - 1;
+    var bluelineLength = card.Blueline != null ? card.Blueline.Length : 0;
+    var powerLength = card.Power.Length + bluelineLength;
     var powerClass = powerLength > 498 ? "text-small" : (powerLength > 324 ? "text-medium" : string.Empty);
 
-    ViewBag.Title = c.Name;
+    ViewBag.Title = card.Name;
 }
 
 <div id="card" style="width: 300px;">
     <div class="cardHeader">
         <div class="cardIcon pull-left">
-            <img src="~/Images/icons/@Model.GetIcon" alt="" />
+            <img src="~/Images/icons/@card.IconPath" alt="" />
         </div>
-        <div class="cardLevel pull-right">@c.Level</div>
+        <div class="cardLevel pull-right">@card.Level</div>
     </div>
     <div class="cardTitle">
         <div class="cardWorld pull-left">
-            <img src="~/Images/worlds/@c.World.ImagePath" alt="" />
+            <img src="~/Images/worlds/@card.World.ImagePath" alt="" />
         </div>
-        <div class="cardName pull-right">@c.Name</div>
+        <div class="cardName pull-right">@card.Name</div>
     </div>
-    <div class="cardPower @powerClass">@c.Power <span style="color: blue;">@c.Blueline</span></div>
+    <div class="cardPower @powerClass">@card.Power <span style="color: blue;">@card.Blueline</span></div>
     <div class="cardFooter">
-        <div class="cardRarity pull-left">@c.Rarity.ShortName</div>
-        <div class="cardBooster pull-left">@c.Booster.Name
+        <div class="cardRarity pull-left">@card.Rarity.ShortName</div>
+        <div class="cardBooster pull-left">@card.Booster.Name
             @*<img src="~/Images/worlds/add.gif" alt="" />*@
         </div>
-        <div class="cardNumber pull-right">@c.Number of @c.NumberSet</div>
+        <div class="cardNumber pull-right">@card.Number of @card.NumberSet</div>
         <div class="clear-both"></div>
     </div>
 </div>
-@*<div style="width: 300px;">
+<div style="width: 300px;">
     <div class="pull-left" style="width: 0%">
         @Html.ActionLink("< Prev", "Details", "Card", htmlAttributes: new { id = @prevId, @class = "btn btn-small btn-primary" })
     </div>
@@ -56,19 +57,15 @@
 </div>
 <table class="table table-striped table-bordered details">
     <tr>
-        <td>Key</td>
-        <td>@Model.SelectedCard.CardKey</td>
-    </tr>
-    <tr>
         <td>Types</td>
-        <td>@Model.GetTypesCsv</td>
+        <td>@card.TypesCsv</td>
     </tr>
     <tr>
         <td>Attributes</td>
-        <td>@Model.GetAttributesCsv</td>
+        <td>@card.AttributesCsv</td>
     </tr>
     <tr>
         <td>Phases</td>
-        <td>@Model.GetPhasesCsv</td>
+        <td>@card.PhasesCsv</td>
     </tr>
-</table>*@
+</table>

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+
 namespace Spellfire.Model
 {
     public class Card
     {
         [Key]
         public int CardKey { get; set; }
-
         [Required]
         public int SequenceNumber { get; set; }
         [Required]
@@ -24,6 +24,28 @@ namespace Spellfire.Model
         public string Level { get; set; }
         [StringLength(32)]
         public string ImagePath { get; set; }
+        public string TypesCsv
+        {
+            get { return string.Join(", ", this.CardKinds.Select(x => x.Kind.Name).ToArray()); }
+        }
+        public string AttributesCsv
+        {
+            get { return string.Join(", ", this.CardCharacteristics.Select(x => x.Characteristic.Name).ToArray()); }
+        }
+        public string PhasesCsv
+        {
+            get { return string.Join(", ", this.CardPhases.Select(x => x.Number).ToArray()); }
+        }
+        public string IconPath
+        {
+            get
+            {
+                var cardType = this.CardKinds.Where(x => x.IsIcon).SingleOrDefault();
+                var iconPath = cardType != null && cardType.Kind != null ? cardType.Kind.IconPath : "blank.gif";
+
+                return iconPath;
+            }
+        }
 
         public ICollection<CardCharacteristic> CardCharacteristics { get; set; }
         public ICollection<CardKind> CardKinds { get; set; }

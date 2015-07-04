@@ -6,7 +6,6 @@
     left: '35%',
     textAlign: 'center',
     color: '#000',
-    /*border: '3px solid #aaa',*/
     backgroundColor: '#fff',
     cursor: 'wait'
 };
@@ -51,6 +50,8 @@ $(document).ready(function () {
         $cardDetail.html("");
         var searchText = $searchText.val();
 
+        $.blockUI({ message: '<img src="/Images/tsr.png" class="spin-infinite" alt="" height="100" width="100" />' })
+
         $.ajax({
             type: "GET",
             url: "Spellfire/Card/List",
@@ -63,6 +64,9 @@ $(document).ready(function () {
         .done(function (html) {
 
             $cardList.html(html);
+        })
+        .always(function () {
+            $.unblockUI();
         });
     });
 
