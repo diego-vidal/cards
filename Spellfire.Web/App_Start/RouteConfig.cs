@@ -10,8 +10,8 @@ namespace Spellfire.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Spellfire",
-                url: "Spellfire/{controller}/{action}/{id}",
+                name: "default",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Card", action = "Index", id = UrlParameter.Optional }
             );
 

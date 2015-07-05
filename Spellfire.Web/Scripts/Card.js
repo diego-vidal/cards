@@ -48,7 +48,7 @@ Spellfire.Card =
 
                 $.ajax({
                     type: "GET",
-                    url: "Spellfire/Card/Details/",
+                    url: "Card/Details/",
                     data: { id: sequence, searchText: searchText },
                     cache: false
                 })
@@ -72,7 +72,7 @@ Spellfire.Card =
 
                 $.ajax({
                     type: "GET",
-                    url: "Spellfire/Card/List",
+                    url: "Card/List",
                     data: { searchText: searchText },
                     cache: true
                 })
