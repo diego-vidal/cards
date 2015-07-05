@@ -50,8 +50,9 @@ build/
 *.dll
 *.pdb
 *.config
-packages/
-.nuget/
+/packages/
+!packages/repositories.config
+/.nuget/
 
 # Visual Studio profiler
 *.psess
