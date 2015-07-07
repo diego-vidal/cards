@@ -13,19 +13,23 @@
     width: 300px;
 }
 
-#cardList #resultsMessage {
-    margin: 10px 0 10px 0;
-    font-weight: bold;
-}
-
 #cardList .findMore {
     cursor: default;
     background-color: lightblue;
 }
 
+#resultsMessage {
+    margin: 10px 0 0 0;
+    font-weight: bold;
+}
+
+#cardResults {
+    margin: 0 20px 0 0;
+}
+
 /**************************************************/
 #card {
-    margin: 20px;
+    margin: 30px 0 0 0;
     padding: 20px;
     width: 300px;
     height: 400px;
