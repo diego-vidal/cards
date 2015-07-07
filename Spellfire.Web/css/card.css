@@ -41,8 +41,18 @@
         position: relative;
     }
 
+    #card .cardRuleHeader { /* cardWorld + "Rule" */
+        height: 40px;
+        position: relative;
+    }
+
     #card .cardTitle { /* cardWorld + cardName */
         height: 70px;
+        position: relative;
+    }
+
+    #card .cardRuleTitle { /* cardName */
+        height: 45px;
         position: relative;
     }
 
@@ -54,10 +64,18 @@
         background-color: #fece9b;
     }
 
+    #card .cardRulePower {
+        height: 255px;
+        position: relative;
+        padding: 5px;
+        background-color: #fece9b;
+    }
+
     #card .cardFooter { /* cardRarity + cardBooster + cardNumber */
         height: 25px;
         position: relative;
         vertical-align: bottom;
+        margin-top: 10px;
     }
 
     /*****************************************************/
@@ -77,6 +95,11 @@
         width: 50%;
         font-weight: bold;
         text-align: right;
+    }
+
+    #card .cardRuleName {
+        font-weight: bold;
+        text-align: left;
     }
 
     #card .cardRarity {

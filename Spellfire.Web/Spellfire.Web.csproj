@@ -209,6 +209,9 @@
     <Content Include="Views\Card\_CardDetail.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Card\_CardVertical.cshtml" />
+    <Content Include="Views\Card\_CardRule.cshtml" />
+    <Content Include="Views\Card\_CardDungeon.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

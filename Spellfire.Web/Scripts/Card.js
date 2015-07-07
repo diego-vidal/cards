@@ -36,7 +36,7 @@ Spellfire.Card =
             },
 
             redirectHome: function () {
-                window.location.href = "/Spellfire";
+                window.location.href = "/";
             },
 
             getCardDetails: function () {

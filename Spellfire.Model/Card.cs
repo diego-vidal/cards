@@ -24,7 +24,7 @@ namespace Spellfire.Model
         public string Level { get; set; }
         [StringLength(32)]
         public string ImagePath { get; set; }
-        public string TypesCsv
+        public string KindsCsv
         {
             get { return string.Join(", ", this.CardKinds.Select(x => x.Kind.Name).ToArray()); }
         }

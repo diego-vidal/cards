@@ -1,0 +1,22 @@
+﻿@model Spellfire.Model.Card
+
+<div class="cardRuleHeader">
+    <div class="cardWorld pull-left">
+        <img src="~/Images/worlds/@Model.World.ImagePath" alt="" />
+    </div>
+    <div class="pull-right">
+        Rule
+    </div>
+</div>
+<div class="cardRuleTitle">
+    <div class="cardRuleName pull-left">@Model.Name</div>
+</div>
+<div class="cardRulePower">@Model.Power <span style="color: blue;">@Model.Blueline</span></div>
+<div class="cardFooter">
+    <div class="cardRarity pull-left">@Model.Rarity.ShortName</div>
+    <div class="cardBooster pull-left">@Model.Booster.Name
+        @*<img src="~/Images/worlds/add.gif" alt="" />*@
+    </div>
+    <div class="cardNumber pull-right">@Model.Number of @Model.NumberSet</div>
+    <div class="clear-both"></div>
+</div>
