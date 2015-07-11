@@ -7,7 +7,7 @@ namespace Spellfire.Dal
 {
     public interface ICardRepository : IRepository<Card>
     {
-        ICollection<Card> GetByName(string name, params Expression<Func<Card, object>>[] includes);
+        ICollection<Card> GetByName(string name, bool includeOnlineBoosters, params Expression<Func<Card, object>>[] includes);
         Card GetBySequenceNumber(int sequenceNumber, params Expression<Func<Card, object>>[] includes);
     }
 }

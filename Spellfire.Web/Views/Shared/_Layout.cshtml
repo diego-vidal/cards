@@ -8,14 +8,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="~/Images/tsr.png" />
     <link rel="icon" type="image/x-icon" href="~/Images/tsr.png" />
 
+    <link href="~/Content/normalize.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <link href="~/css/common.css" rel="stylesheet" type="text/css" />
     <link href="~/css/css3.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/card.css" rel="stylesheet" type="text/css" />
 
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>   
+    @RenderSection("Styles", false)
+
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
 
     <title>@ViewBag.Title</title>
 </head>
@@ -51,10 +53,10 @@
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.blockUI.js"></script>
+    <script src="~/Scripts/amplify.min.js"></script>
 
-    <script src="~/Scripts/common.js"></script>
-    <script src="~/Scripts/notification.js"></script>
-    <script src="~/Scripts/card.js"></script>
+    <script src="~/Scripts/app/common.js"></script>
+    <script src="~/Scripts/app/notification.js"></script>
 
     <script>
         $(document).ready(function () {

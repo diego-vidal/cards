@@ -25,9 +25,9 @@ namespace Spellfire.Web.Controllers
             return View(viewModel);
         }
 
-        public ActionResult List(string searchText)
+        public ActionResult List(string searchText, bool includeOnlineBoosters)
         {
-            var cards = _dal.Cards.GetByName(searchText, x => x.CardKinds, x => x.Booster);
+            var cards = _dal.Cards.GetByName(searchText, includeOnlineBoosters, x => x.CardKinds, x => x.Booster);
             var filteredCards = cards.Take(MaxCardListCount);
 
             foreach (var card in filteredCards)
@@ -45,7 +45,7 @@ namespace Spellfire.Web.Controllers
             return PartialView("_CardList", viewModel);
         }
 
-        public ActionResult Details(int id = 0, string searchText = null)
+        public ActionResult Details(int id = 0)
         {
             var card = _dal.Cards.GetBySequenceNumber(id);
 
@@ -59,7 +59,6 @@ namespace Spellfire.Web.Controllers
 
             var viewModel = new HomeViewModel()
             {
-                SearchText = searchText,
                 SelectedCard = card
             };
 

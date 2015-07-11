@@ -8,17 +8,32 @@ namespace Spellfire.Dal
 {
     public class CardRepository : MyRepositoryBase<Card>, ICardRepository
     {
+        private List<BoosterKey> _onlineBoosterKeys = new List<BoosterKey>()
+                                                      {
+                                                        BoosterKey.Chaos, 
+                                                        BoosterKey.Conquest,
+                                                        BoosterKey.Inquisition,
+                                                        BoosterKey.Millennium 
+                                                     };
+
         public CardRepository(SpellfireContext context)
             : base(context)
         {
         }
 
-        public ICollection<Card> GetByName(string name, params Expression<Func<Card, object>>[] includes)
+        public ICollection<Card> GetByName(string name, bool includeOnlineBoosters, params Expression<Func<Card, object>>[] includes)
         {
-            return Context.Cards
-                          .AddIncludes(includes)
-                          .Where(x => x.Name.Contains(name))
-                          .ToList();
+
+            var query = Context.Cards
+                               .AddIncludes(includes)
+                               .Where(x => x.Name.Contains(name));
+
+            if (!includeOnlineBoosters)
+            {
+                query = query.Where(x => !_onlineBoosterKeys.Contains(x.BoosterKey));
+            }
+
+            return query.ToList();
         }
 
         public Card GetBySequenceNumber(int sequenceNumber, params Expression<Func<Card, object>>[] includes)

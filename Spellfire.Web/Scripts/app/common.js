@@ -1,4 +1,4 @@
-﻿var Spellfire = window.Spellfire = window.Spellfire || {};
+﻿var Spellfire = window.Spellfire || {};
 
 Spellfire.Common =
     (function (module, $) {
