@@ -47,33 +47,16 @@ Spellfire.Card =
                 window.location.href = "/";
             },
 
-            getCardDetails: function () {
-
-                var sequence = $(this).data("sequence");
-                var searchText = self.$searchText.val();
-
-                $.ajax({
-                    type: "GET",
-                    url: "Card/Details/",
-                    data: { id: sequence, searchText: searchText },
-                    cache: false
-                })
-                .fail(function (jqXHR, textStatus, errorThrown) {
-                    alert(errorThrown);
-                })
-                .done(function (html) {
-                    self.$cardDetail.html(html);
-                })
-                .always(function () {
-                    Spellfire.Notification.hide();
-                });
-            },
-
             getCardList: function () {
 
-                self.$cardDetail.html("");
                 var searchText = self.$searchText.val();
+
+                if (!searchText) {
+                    return;
+                }
+
                 var includeOnlineBoosters = self.$includeOnlineBoosters.is(":checked");
+                self.$cardDetail.html("");
 
                 Spellfire.Notification.show();
 
@@ -93,6 +76,28 @@ Spellfire.Card =
                 })
                 .always(function () {
 
+                    Spellfire.Notification.hide();
+                });
+            },
+
+            getCardDetails: function () {
+
+                var sequence = $(this).data("sequence");
+                var searchText = self.$searchText.val();
+
+                $.ajax({
+                    type: "GET",
+                    url: "Card/Details/",
+                    data: { id: sequence, searchText: searchText },
+                    cache: false
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                })
+                .done(function (html) {
+                    self.$cardDetail.html(html);
+                })
+                .always(function () {
                     Spellfire.Notification.hide();
                 });
             },

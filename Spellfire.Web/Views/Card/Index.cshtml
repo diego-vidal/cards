@@ -5,14 +5,17 @@
     ViewBag.Title = "Spellfire Search";
 }
 
-<div class="input-group" style="padding-top: 10px; width: 280px;">
-    @Html.TextBoxFor(m => m.SearchText, new { value = Model.SearchText, @class = "form-control", placeholder = Model.GetPropertyDisplayPrompt(x => x.SearchText) })
-    <span id="search" class="input-group-addon">
-        <i class="fa fa-search"></i>
-    </span>
+<div style="padding: 10px 0 10px 0;">
+    @Html.CheckBoxFor(m => m.IncludeOnlineBoosters, new { id = "includeOnlineBoosters" })
+    @Html.LabelFor(m => m.IncludeOnlineBoosters, new { id = "includeOnlineBoostersLabel" })
+    <div class="input-group" style="width: 280px;">
+        @Html.TextBoxFor(m => m.SearchText, new { value = Model.SearchText, @class = "form-control", placeholder = Model.GetPropertyDisplayPrompt(x => x.SearchText) })
+        <span id="search" class="input-group-addon">
+            <i class="fa fa-search"></i>
+        </span>
+    </div>
 </div>
-@Html.CheckBoxFor(m => m.IncludeOnlineBoosters, new { id = "includeOnlineBoosters" })
-@Html.LabelFor(m => m.IncludeOnlineBoosters, new { id = "includeOnlineBoostersLabel" })
+
 
 <div>
     <div id="cardList" class="pull-left">
@@ -23,8 +26,8 @@
 
 @section Styles{
 
-        <link href="~/css/index.css" rel="stylesheet" type="text/css" />
-        <link href="~/css/card.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/card.css" rel="stylesheet" type="text/css" />
 }
 
 @section Scripts{
