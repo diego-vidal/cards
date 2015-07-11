@@ -5,9 +5,6 @@ using System.Reflection;
 
 namespace Spellfire.Common.Extensions
 {
-    /// <summary>
-    /// Extension methods that can be applied to all objects
-    /// </summary>
     public static class ObjectExtensions
     {
         public static TToModify SetProperty<TToModify>(this TToModify objToModify, string propertyName, object value, bool convertValue = false)
@@ -42,13 +39,6 @@ namespace Spellfire.Common.Extensions
         /// <summary>
         /// Returns the name of a property or field accessed in the given expression
         /// </summary>
-        /// <typeparam name="TObject">the type of the object that the property belongs to</typeparam>
-        /// <typeparam name="TProperty">the type of the property being accessed</typeparam>
-        /// <param name="objectWithProperty">the object that the property belongs to</param>
-        /// <param name="propertyExpression">an expression that accesses a property</param>
-        /// <returns>the name of the property accessed by the given expression</returns>
-        /// <exception cref="ArgumentNullException">if <paramref name="propertyExpression" /> is null</exception>
-        /// <exception cref="ArgumentException">if <paramref name="propertyExpression"/> does not refer to a property or field</exception>
         public static string GetPropertyName<TObject, TProperty>(this TObject objectWithProperty, Expression<Func<TObject, TProperty>> propertyExpression)
         {
             return GetMemberExpression(propertyExpression).Member.Name;
@@ -57,13 +47,6 @@ namespace Spellfire.Common.Extensions
         /// <summary>
         /// Returns the display name of a property or field accessed in the given expression
         /// </summary>
-        /// <typeparam name="TObject">the type of the object that the property belongs to</typeparam>
-        /// <typeparam name="TProperty">the type of the property being accessed</typeparam>
-        /// <param name="objectWithProperty">the object that the property belongs to</param>
-        /// <param name="propertyExpression">an expression that accesses a property</param>
-        /// <returns>The display name of the property accessed by the given expression</returns>
-        /// <exception cref="ArgumentNullException">if <paramref name="propertyExpression" /> is null</exception>
-        /// <exception cref="ArgumentException">if <paramref name="propertyExpression"/> does not refer to a property or field</exception>
         public static string GetPropertyDisplayName<TObject, TProperty>(this TObject objectWithProperty, Expression<Func<TObject, TProperty>> propertyExpression)
         {
             var memberInfo = GetMemberExpression(propertyExpression).Member;
@@ -74,14 +57,20 @@ namespace Spellfire.Common.Extensions
         }
 
         /// <summary>
+        /// Returns the display name of a property or field accessed in the given expression
+        /// </summary>
+        public static string GetPropertyDisplayPrompt<TObject, TProperty>(this TObject objectWithProperty, Expression<Func<TObject, TProperty>> propertyExpression)
+        {
+            var memberInfo = GetMemberExpression(propertyExpression).Member;
+
+            var attribute = memberInfo.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
+
+            return attribute == null ? memberInfo.Name : attribute.Prompt;
+        }
+
+        /// <summary>
         /// Returns a member expression to be used for retrieving member information
         /// </summary>
-        /// <typeparam name="TObject">The type of the object that the property belongs to</typeparam>
-        /// <typeparam name="TProperty">The type of the property being accessed</typeparam>
-        /// <param name="propertyExpression">An expression that accesses a property</param>
-        /// <returns>A member expression from the property expression</returns>
-        /// <exception cref="ArgumentNullException">if <paramref name="propertyExpression" /> is null</exception>
-        /// <exception cref="ArgumentException">if <paramref name="propertyExpression"/> does not refer to a property or field</exception>
         private static MemberExpression GetMemberExpression<TObject, TProperty>(Expression<Func<TObject, TProperty>> propertyExpression)
         {
             if (propertyExpression == null)

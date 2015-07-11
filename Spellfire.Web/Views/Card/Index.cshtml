@@ -1,15 +1,18 @@
 ﻿@using Spellfire.Model
+@using Spellfire.Common.Extensions
 @model Spellfire.Web.Models.HomeViewModel
 @{
     ViewBag.Title = "Spellfire Search";
 }
 
 <div class="input-group" style="padding-top: 10px; width: 280px;">
-    @Html.TextBoxFor(m => m.SearchText, new { value = Model.SearchText, @class = "form-control", placeholder = "Type to search" })
+    @Html.TextBoxFor(m => m.SearchText, new { value = Model.SearchText, @class = "form-control", placeholder = Model.GetPropertyDisplayPrompt(x => x.SearchText) })
     <span id="search" class="input-group-addon">
         <i class="fa fa-search"></i>
     </span>
 </div>
+@Html.CheckBoxFor(m => m.IncludeOnlineBoosters, new { id = "includeOnlineBoosters" })
+@Html.LabelFor(m => m.IncludeOnlineBoosters, new { id = "includeOnlineBoostersLabel" })
 
 <div>
     <div id="cardList" class="pull-left">
@@ -18,7 +21,15 @@
     </div>
 </div>
 
+@section Styles{
+
+        <link href="~/css/index.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/card.css" rel="stylesheet" type="text/css" />
+}
+
 @section Scripts{
+
+    <script src="~/Scripts/app/card.js"></script>
 
     <script>
         $(document).ready(function () {

@@ -25,9 +25,9 @@ namespace Spellfire.Web.Controllers
             return View(viewModel);
         }
 
-        public ActionResult List(string searchText)
+        public ActionResult List(string searchText, bool includeOnlineBoosters)
         {
-            var cards = _dal.Cards.GetByName(searchText, x => x.CardKinds, x => x.Booster);
+            var cards = _dal.Cards.GetByName(searchText, includeOnlineBoosters, x => x.CardKinds, x => x.Booster);
             var filteredCards = cards.Take(MaxCardListCount);
 
             foreach (var card in filteredCards)

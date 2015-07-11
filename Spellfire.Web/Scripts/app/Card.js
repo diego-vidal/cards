@@ -1,4 +1,4 @@
-﻿var Spellfire = window.Spellfire = window.Spellfire || {};
+﻿var Spellfire = window.Spellfire || {};
 
 Spellfire.Card =
     (function (module, $) {
@@ -25,14 +25,22 @@ Spellfire.Card =
                 self.$searchText = $("#SearchText");
                 self.$cardList = $("#cardList");
                 self.$cardDetail = $("#cardDetail");
+                self.$includeOnlineBoosters = $("#includeOnlineBoosters");
+                self.$includeOnlineBoostersLabel = $("#includeOnlineBoostersLabel");
             },
 
             attachHandlers: function () {
 
                 self.$logo.on("click", self.redirectHome);
                 self.$search.click(self.getCardList);
+                self.$includeOnlineBoostersLabel.click(function () {
+                    self.$includeOnlineBoosters.trigger("click");
+                });
                 self.$cardList.on("click", "a.selectable", self.getCardDetails);
                 self.$searchText.keypress(self.searchOnEnter);
+                self.$searchText.click(function () {
+                    $(this).select();
+                });
             },
 
             redirectHome: function () {
@@ -43,8 +51,6 @@ Spellfire.Card =
 
                 var sequence = $(this).data("sequence");
                 var searchText = self.$searchText.val();
-
-                Spellfire.Notification.show();
 
                 $.ajax({
                     type: "GET",
@@ -67,13 +73,15 @@ Spellfire.Card =
 
                 self.$cardDetail.html("");
                 var searchText = self.$searchText.val();
+                var includeOnlineBoosters = self.$includeOnlineBoosters.is(":checked");
+                console.log(includeOnlineBoosters); //dvidal
 
                 Spellfire.Notification.show();
 
                 $.ajax({
                     type: "GET",
                     url: "Card/List",
-                    data: { searchText: searchText },
+                    data: { searchText: searchText, includeOnlineBoosters: includeOnlineBoosters },
                     cache: true
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
