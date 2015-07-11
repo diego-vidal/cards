@@ -29,7 +29,9 @@ Spellfire.Card =
                 self.$cardList = $("#cardList");
                 self.$cardDetail = $("#cardDetail");
 
-                self.getStoredClientValues();
+                self.$storedSelections = amplify.store();
+
+                self.renderPreviousSelections();
             },
 
             attachHandlers: function () {
@@ -50,16 +52,14 @@ Spellfire.Card =
                 window.location.href = "/";
             },
 
-            getStoredClientValues: function () {
+            renderPreviousSelections: function () {
 
-                var clientValues = amplify.store();
-
-                if (clientValues.searchText) {
-                    self.$searchText.val(clientValues.searchText);
+                if (self.$storedSelections.searchText) {
+                    self.$searchText.val(self.$storedSelections.searchText);
                 }
 
-                if (clientValues.includeOnlineBoosters) {
-                    self.$includeOnlineBoosters.prop('checked', clientValues.includeOnlineBoosters);
+                if (self.$storedSelections.includeOnlineBoosters) {
+                    self.$includeOnlineBoosters.prop('checked', self.$storedSelections.includeOnlineBoosters);
                 }
             },
 
@@ -71,7 +71,7 @@ Spellfire.Card =
                 }
             },
 
-            
+
             getCardList: function () {
 
                 var searchText = self.$searchText.val();
@@ -104,7 +104,8 @@ Spellfire.Card =
                     }
 
                     self.$cardList.html(result);
-                    self.selectFirstResult();
+
+                    self.selectCard(self.$storedSelections.sequence);
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
                     self.displayError(errorThrown);
@@ -119,6 +120,8 @@ Spellfire.Card =
 
                 var sequence = $(this).data("sequence");
 
+                amplify.store("sequence", sequence);
+
                 $.ajax({
                     type: "GET",
                     url: "Card/Details/",
@@ -127,7 +130,7 @@ Spellfire.Card =
                     cache: false
                 })
                 .done(function (result) {
-                    
+
                     if (result.hasMessage) {
 
                         self.displayError(result.message);
@@ -154,8 +157,17 @@ Spellfire.Card =
                 }
             },
 
-            selectFirstResult: function () {
+            selectCard: function (sequence) {
 
+                var cardSelected = $('#cardResults [data-sequence="' + sequence + '"]');
+
+                if (cardSelected.length) {
+
+                    cardSelected.click();
+                    return;
+                }
+
+                // Otherwise select first card
                 $("#cardResults .selectable").first().click();
             }
         };
