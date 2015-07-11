@@ -74,7 +74,6 @@ Spellfire.Card =
                 self.$cardDetail.html("");
                 var searchText = self.$searchText.val();
                 var includeOnlineBoosters = self.$includeOnlineBoosters.is(":checked");
-                console.log(includeOnlineBoosters); //dvidal
 
                 Spellfire.Notification.show();
 
