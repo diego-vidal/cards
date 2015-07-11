@@ -27,6 +27,8 @@ Spellfire.Card =
                 self.$cardDetail = $("#cardDetail");
                 self.$includeOnlineBoosters = $("#includeOnlineBoosters");
                 self.$includeOnlineBoostersLabel = $("#includeOnlineBoostersLabel");
+
+                self.getStoredClientValues();
             },
 
             attachHandlers: function () {
@@ -47,6 +49,19 @@ Spellfire.Card =
                 window.location.href = "/";
             },
 
+            getStoredClientValues: function () {
+
+                var clientValues = amplify.store();
+
+                if (clientValues.searchText) {
+                    self.$searchText.val(clientValues.searchText);
+                }
+
+                if (clientValues.includeOnlineBoosters) {
+                    self.$includeOnlineBoosters.prop('checked', clientValues.includeOnlineBoosters);
+                }
+            },
+
             getCardList: function () {
 
                 var searchText = self.$searchText.val();
@@ -56,6 +71,11 @@ Spellfire.Card =
                 }
 
                 var includeOnlineBoosters = self.$includeOnlineBoosters.is(":checked");
+
+                // Store client selections
+                amplify.store("searchText", searchText);
+                amplify.store("includeOnlineBoosters", includeOnlineBoosters);
+
                 self.$cardDetail.html("");
 
                 Spellfire.Notification.show();
