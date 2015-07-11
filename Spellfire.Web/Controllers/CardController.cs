@@ -45,7 +45,7 @@ namespace Spellfire.Web.Controllers
             return PartialView("_CardList", viewModel);
         }
 
-        public ActionResult Details(int id = 0, string searchText = null)
+        public ActionResult Details(int id = 0)
         {
             var card = _dal.Cards.GetBySequenceNumber(id);
 
@@ -59,7 +59,6 @@ namespace Spellfire.Web.Controllers
 
             var viewModel = new HomeViewModel()
             {
-                SearchText = searchText,
                 SelectedCard = card
             };
 

@@ -21,12 +21,13 @@ Spellfire.Card =
 
                 self.$logo = $("#logo");
                 self.$container = $("#container");
-                self.$search = $("#search");
-                self.$searchText = $("#SearchText");
-                self.$cardList = $("#cardList");
-                self.$cardDetail = $("#cardDetail");
                 self.$includeOnlineBoosters = $("#includeOnlineBoosters");
                 self.$includeOnlineBoostersLabel = $("#includeOnlineBoostersLabel");
+                self.$search = $("#search");
+                self.$searchText = $("#SearchText");
+                self.$errorMessage = $("#errorMessage");
+                self.$cardList = $("#cardList");
+                self.$cardDetail = $("#cardDetail");
 
                 self.getStoredClientValues();
             },
@@ -62,6 +63,15 @@ Spellfire.Card =
                 }
             },
 
+            displayError: function (message) {
+
+                if (message) {
+                    self.$errorMessage.html(message);
+                    self.$errorMessage.removeClass("hidden");
+                }
+            },
+
+            
             getCardList: function () {
 
                 var searchText = self.$searchText.val();
@@ -72,7 +82,6 @@ Spellfire.Card =
 
                 var includeOnlineBoosters = self.$includeOnlineBoosters.is(":checked");
 
-                // Store client selections
                 amplify.store("searchText", searchText);
                 amplify.store("includeOnlineBoosters", includeOnlineBoosters);
 
@@ -86,13 +95,19 @@ Spellfire.Card =
                     data: { searchText: searchText, includeOnlineBoosters: includeOnlineBoosters },
                     cache: true
                 })
-                .fail(function (jqXHR, textStatus, errorThrown) {
-                    alert(errorThrown);
-                })
-                .done(function (html) {
+                .done(function (result) {
 
-                    self.$cardList.html(html);
+                    if (result.hasMessage) {
+
+                        self.displayError(result.message);
+                        return;
+                    }
+
+                    self.$cardList.html(result);
                     self.selectFirstResult();
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    self.displayError(errorThrown);
                 })
                 .always(function () {
 
@@ -103,19 +118,26 @@ Spellfire.Card =
             getCardDetails: function () {
 
                 var sequence = $(this).data("sequence");
-                var searchText = self.$searchText.val();
 
                 $.ajax({
                     type: "GET",
                     url: "Card/Details/",
-                    data: { id: sequence, searchText: searchText },
+                    data: { id: sequence },
+                    datatype: 'json',
                     cache: false
                 })
-                .fail(function (jqXHR, textStatus, errorThrown) {
-                    alert(errorThrown);
+                .done(function (result) {
+                    
+                    if (result.hasMessage) {
+
+                        self.displayError(result.message);
+                        return;
+                    }
+
+                    self.$cardDetail.html(result);
                 })
-                .done(function (html) {
-                    self.$cardDetail.html(html);
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    self.displayError(errorThrown);
                 })
                 .always(function () {
                     Spellfire.Notification.hide();
