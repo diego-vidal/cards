@@ -22,7 +22,7 @@ namespace Spellfire.Model
         ADnD = 7,
         [Display(Name = "TSR", ShortName = "TSR", Description = "tsr.gif")]
         TSR = 8,
-        [Display(Name = "None", ShortName = "NO", Description = "na.gif")]
+        [Display(Name = "None", ShortName = "NO", Description = "blank.gif")]
         None = 9
     }
 }
