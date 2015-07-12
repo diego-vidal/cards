@@ -255,6 +255,7 @@
     <Content Include="Views\Card\_CardRule.cshtml" />
     <Content Include="Views\Card\_CardDungeon.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\Card\_CardFooter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

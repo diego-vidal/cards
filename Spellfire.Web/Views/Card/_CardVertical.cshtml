@@ -2,8 +2,8 @@
 
 @{
     var bluelineLength = Model.Blueline != null ? Model.Blueline.Length : 0;
-    var powerLength = Model.Power.Length + bluelineLength;
-    var powerClass = powerLength > 498 ? "text-small" : (powerLength > 324 ? "text-medium" : string.Empty);
+    var completePowerLength = Model.Power.Length + bluelineLength;
+    var powerClass = completePowerLength > 498 ? "text-small" : (completePowerLength > 324 ? "text-medium" : string.Empty);
 }
 
 <div class="cardHeader">
@@ -19,12 +19,4 @@
     <div class="cardName pull-right">@Model.Name</div>
 </div>
 <div class="cardPower @powerClass">@Model.Power <span style="color: blue;">@Model.Blueline</span></div>
-<div class="cardFooter">
-    <div class="cardRarity pull-left">@Model.Rarity.ShortName</div>
-    <div class="cardBooster pull-left">@Model.Booster.Name
-        @*<img src="~/Images/worlds/add.gif" alt="" />*@
-    </div>
-    <div class="cardNumber pull-right">@Model.Number of @Model.NumberSet</div>
-    <div class="clear-both"></div>
-</div>
 
