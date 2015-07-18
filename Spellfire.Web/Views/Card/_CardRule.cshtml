@@ -3,16 +3,16 @@
 @{
     var bluelineLength = Model.Blueline != null ? Model.Blueline.Length : 0;
     var completePowerLength = Model.Power.Length + bluelineLength;
-    var powerClass = completePowerLength > 500 ? "text-medium" : string.Empty;
+    var powerClass = completePowerLength > 440 ? "text-medium" : string.Empty;
 }
 
 <div class="cardRuleHeader">
     <div class="cardWorld pull-left">
-        <img src="~/Images/worlds/@Model.World.ImagePath" alt="" />
+        <img src="~/Images/worlds/@Model.World.ImagePath" alt="" class="world"/>
     </div>
     <div class="pull-right">Rule</div>
 </div>
 <div class="cardRuleTitle">
     <div class="cardRuleName pull-left">@Model.Name</div>
 </div>
-<div class="cardRulePower @powerClass">@Model.Power <span style="color: blue;">@Model.Blueline</span></div>
+<div class="cardRulePower @powerClass">@Model.Power <span class="blueline" title="Blueline">@Model.Blueline</span></div>

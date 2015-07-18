@@ -128,13 +128,15 @@
     <Content Include="Icon.png" />
     <Content Include="Images\tsr.png" />
     <Content Include="Images\spellfire.gif" />
-    <Content Include="Images\worlds\add2.gif" />
-    <Content Include="Images\worlds\br.gif" />
-    <Content Include="Images\worlds\dl.gif" />
-    <Content Include="Images\worlds\ds.gif" />
-    <Content Include="Images\worlds\fr.gif" />
     <Content Include="Error.html" />
-    <Content Include="Images\worlds\rl.gif" />
+    <Content Include="Images\worlds\add.png" />
+    <Content Include="Images\worlds\add2.png" />
+    <Content Include="Images\worlds\br.png" />
+    <Content Include="Images\worlds\dl.png" />
+    <Content Include="Images\worlds\ds.png" />
+    <Content Include="Images\worlds\fr.png" />
+    <Content Include="Images\worlds\gh.png" />
+    <Content Include="Images\worlds\rl.png" />
     <Content Include="robots.txt" />
     <None Include="Scripts\amplify-vsdoc.js" />
     <Content Include="Scripts\amplify.js" />
@@ -190,10 +192,8 @@
     <Content Include="Images\icons\unarmedCombat.gif" />
     <Content Include="Images\icons\wizard.gif" />
     <Content Include="Images\icons\wizardSpell.gif" />
-    <Content Include="Images\worlds\add.gif" />
     <Content Include="Images\worlds\blank.gif" />
     <Content Include="Images\worlds\dr.png" />
-    <Content Include="Images\worlds\gh.gif" />
     <Content Include="Images\worlds\ns.png" />
     <Content Include="css\common.css" />
     <Content Include="Global.asax" />
@@ -256,6 +256,7 @@
     <Content Include="Views\Card\_CardDungeon.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Card\_CardFooter.cshtml" />
+    <Content Include="Views\Card\Hand.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

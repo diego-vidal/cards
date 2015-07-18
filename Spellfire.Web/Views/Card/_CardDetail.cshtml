@@ -19,7 +19,7 @@
     ViewBag.Title = card.Name;
 }
 
-<div id="card">
+<div id="@card.SequenceNumber" class="card">
     @if (card.CardKinds.Any(x => x.KindKey == KindKey.Rule))
     {
         Html.RenderPartial("_CardRule", card);

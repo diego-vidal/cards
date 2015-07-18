@@ -38,9 +38,11 @@ namespace Spellfire.Dal
 
         public Card GetBySequenceNumber(int sequenceNumber, params Expression<Func<Card, object>>[] includes)
         {
-            return Context.Cards
-                          .AddIncludes(includes)
-                          .FirstOrDefault(x => x.SequenceNumber == sequenceNumber);
+            var card = Context.Cards
+                              .AddIncludes(includes)
+                              .FirstOrDefault(x => x.SequenceNumber == sequenceNumber);
+
+            return card;
         }
 
         //public ICollection<DailyCase> GetBySearchCriteria(Guid companyKey, Guid userProfileKey, int start, int? maxResults, 

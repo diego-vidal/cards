@@ -10,13 +10,13 @@
     <div class="cardIcon pull-left">
         <img src="~/Images/icons/@Model.IconPath" alt="" />
     </div>
-    <div class="cardLevel pull-right">@Model.Level</div>
-</div>
-<div class="cardTitle">
-    <div class="cardWorld pull-left">
-        <img src="~/Images/worlds/@Model.World.ImagePath" alt="" />
+    <div class="cardWorld2 pull-right">
+        <img src="~/Images/worlds/@Model.World.ImagePath" alt="" class="world"/>
     </div>
-    <div class="cardName pull-right">@Model.Name</div>
+    @*    <div class="cardLevel pull-right">@Model.Level</div>*@
 </div>
-<div class="cardPower @powerClass">@Model.Power <span style="color: blue;">@Model.Blueline</span></div>
+<div class="cardTitle2">
+    <div class="cardName2 pull-left">@Model.Name</div>
+</div>
+<div class="cardPower2 @powerClass">@Model.Power <span class="blueline" title="Blueline">@Model.Blueline</span></div>
 
