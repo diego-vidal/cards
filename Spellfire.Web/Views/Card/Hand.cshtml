@@ -1,0 +1,49 @@
+﻿@using Spellfire.Model
+@model Spellfire.Web.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "Hand";
+    var cards = Model.FilteredCards;
+
+    if (cards == null)
+    {
+    <div style="padding-top: 10px;">
+        <span style="color: red;">Hand is empty!</span>
+    </div>
+        return;
+    }
+
+}
+
+<div id="errorMessage" class="alert alert-danger hidden" style="width: 280px;"></div>
+@foreach (var card in cards)
+{
+    <div id="@card.SequenceNumber" class="card hand pull-left">
+        @if (card.CardKinds.Any(x => x.KindKey == KindKey.Rule))
+        {
+            Html.RenderPartial("_CardRule", card);
+        }
+        else if (card.CardKinds.Any(x => x.KindKey == KindKey.Dungeon))
+        {
+            Html.RenderPartial("_CardDungeon", card);
+        }
+        else
+        {
+            Html.RenderPartial("_CardVertical", card);
+        }
+        @{ Html.RenderPartial("_CardFooter", card); }
+    </div>
+}
+
+@section Styles{
+
+    <link href="~/css/card.css" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+        });
+    </script>
+}

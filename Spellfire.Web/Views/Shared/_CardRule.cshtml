@@ -3,7 +3,7 @@
 @{
     var bluelineLength = Model.Blueline != null ? Model.Blueline.Length : 0;
     var completePowerLength = Model.Power.Length + bluelineLength;
-    var powerClass = completePowerLength > 440 ? "text-medium" : string.Empty;
+    var powerClass = completePowerLength > 600 ? "text-small" : (completePowerLength > 440 ? "text-medium" : string.Empty);
 }
 
 <div class="cardRuleHeader">

@@ -35,9 +35,9 @@ namespace Spellfire.Web.Controllers
                     sequenceNumbers = new List<int>() { 3444, 3445, 3446, 3447, 3448, 3449, 3450 };
                     break;
                 case HandType.OneCharLevel:
-                    // Cleric:1992, Hero:2325, Holding*:none Monster:3300, Psionicist:2723, Realm:3473, Regent:3160, Thief:3361, Wizard:3222
-                    // * TODO: fix the database for holdings without "+"
-                    sequenceNumbers = new List<int>() { 1992, 2325, 3300, 2723, 3473, 3160, 3361, 3222 };
+                    // Cleric:1992, Hero:2325, Holding*:36 Monster:3300, Psionicist:2723, Realm:3473, Regent:3160, Thief:3361, Wizard:3222
+                    // * TODO: fix the database for some holdings without "+"
+                    sequenceNumbers = new List<int>() { 1992, 2325, 36, 3300, 2723, 3473, 3160, 3361, 3222 };
                     break;
                 case HandType.TwoCharLevel:
                     // Ally:2677, Artifact:2440, BloodAbility:3103, ClericSpell:2102, Holding:1508, MagItem:3096, PsionicPower:2791, ThiefSkill:3533, UnarmedCombat:3038, WizardSpell:1371
