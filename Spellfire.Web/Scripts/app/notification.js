@@ -25,7 +25,7 @@ Spellfire.Notification =
         module.show = function (htmlMessage) {
 
             if (!htmlMessage) {
-                htmlMessage = '<img src="/Images/tsr.png" class="spin-infinite" alt="" height="100" width="100" />';
+                htmlMessage = '<img src="/Images/worlds/tsr.png" class="spin-infinite" alt="" height="100" width="100" />';
             }
 
             $.blockUI({ message: htmlMessage })

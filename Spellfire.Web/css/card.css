@@ -36,6 +36,10 @@
     width: 150px;
 }
 
+    .world.tsr {
+        width: 70px;
+    }
+
 .level {
     font-size: 16pt;
     position: relative;
@@ -45,38 +49,42 @@
 }
 
     .level.ally {
-        font-size: 18pt;
-        top: 15px;
-        left: -47px;
+        top: 16px;
+        left: -46px;
         color: black;
     }
+
+        .level.ally.three-char {
+            font-size: 14pt;
+            top: 18px;
+            left: -52px;
+        }
 
     .level.artifact {
         top: 17px;
         left: -48px;
     }
 
-    .level.bloodability {
-        top: 22px;
-        left: -53px;
+        .level.artifact.three-char {
+            left: -54px;
+        }
+
+    .level.blood-ability {
+        top: 24px;
+        left: -49px;
         color: black;
     }
-
-    /*.level.champion {
-        top: 28px;
-        left: -42px;
-    }
-
-        .level.champion.two-char {
-            left: -48px;
-        }*/
 
     .level.cleric {
         top: 16px;
     }
 
-    .level.clericspell {
-        top: 15px;
+        .level.cleric.two-char {
+            left: -49px;
+        }
+
+    .level.cleric-spell {
+        left: -49px;
         color: black;
     }
 
@@ -85,30 +93,56 @@
         color: black;
     }
 
+        .level.hero.two-char {
+            left: -52px;
+        }
+
+        .level.hero.three-char {
+            left: -56px;
+        }
+
     .level.holding {
         top: 4px;
     }
 
-        .level.holding.two-char { /*pending*/
-            top: 28px;
-            left: -42px;
+        .level.holding.two-char {
+            left: -48px;
         }
 
-    .level.magicalitem {
-        top: 28px;
-        left: -51px;
+    .level.magical-item {
+        top: 30px;
+        left: -48px;
     }
 
-        .level.magicalitem.three-char {
-            left: -51px;
+        .level.magical-item.three-char {
+            font-size: 14pt;
+            left: -53px;
         }
 
     .level.monster {
         top: 32px;
     }
 
+        .level.monster.two-char {
+            left: -48px;
+        }
+
+        .level.monster.three-char {
+            left: -50px;
+        }
+
     .level.psionicist {
         top: 12px;
+        color: black;
+    }
+
+        .level.psionicist.two-char {
+            left: -50px;
+        }
+
+    .level.psionic-power {
+        top: 12px;
+        left: -49px;
         color: black;
     }
 
@@ -116,20 +150,49 @@
         top: 34px;
     }
 
-        .level.realm.two-char { /*pending*/
-            left: -42px;
+        .level.realm.two-char {
+            left: -52px;
         }
 
     .level.regent {
         top: 24px;
     }
 
+        .level.regent.two-char {
+            left: -48px;
+        }
+
     .level.thief {
-        left: -44px;
+        top: 32px;
     }
 
+        .level.thief.two-char {
+            left: -50px;
+        }
+
+    .level.unarmed-combat {
+        top: 13px;
+        left: -48px;
+        color: black;
+    }
+
+        .level.unarmed-combat.three-char {
+            font-size: 14pt;
+            left: -53px;
+        }
+
     .level.wizard {
-        top: 15px;
+        top: 17px;
+    }
+
+        .level.wizard.two-char {
+            left: -48px;
+        }
+
+    .level.wizard-spell {
+        top: 17px;
+        left: -48px;
+        color: black;
     }
 
 .blueline {
@@ -200,17 +263,6 @@
         position: relative;
         vertical-align: bottom;
         margin-top: 10px;
-    }
-
-    .card .cardIcon {
-    }
-
-    .card .cardLevel {
-        font-size: 3em;
-    }
-
-    .card .cardWorld {
-        width: 50%;
     }
 
     .card .cardWorld2 {

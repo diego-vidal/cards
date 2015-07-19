@@ -48,6 +48,13 @@ namespace Spellfire.Web.Controllers
                                     3488, 2181, 2194, 3564, 3439
                                   };
                     break;
+                case HandType.ThreeCharLevel:
+                    // Ally:3044, 3566, 3665, Artifact:2225, 2165, MagItem:2562, 3176, 3633, UnarmedCombat:3765, Hero:824, Monster:2903
+                    sequenceNumbers = new List<int>() 
+                                  { 
+                                    3044, 3566, 3665, 2225, 2165, 2562, 3176, 3633, 3765, 824, 2903
+                                  };
+                    break;
                 default:
                     break;
             }
