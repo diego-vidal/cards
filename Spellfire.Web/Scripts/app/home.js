@@ -1,6 +1,6 @@
 ﻿var Spellfire = window.Spellfire || {};
 
-Spellfire.Card =
+Spellfire.Home =
     (function (module, $) {
 
         "use strict";
@@ -19,7 +19,6 @@ Spellfire.Card =
 
             initilizeVariables: function () {
 
-                self.$logo = $("#logo");
                 self.$container = $("#container");
                 self.$includeOnlineBoosters = $("#includeOnlineBoosters");
                 self.$includeOnlineBoostersLabel = $("#includeOnlineBoostersLabel");
@@ -36,7 +35,6 @@ Spellfire.Card =
 
             attachHandlers: function () {
 
-                self.$logo.on("click", self.redirectHome);
                 self.$search.click(self.getCardList);
                 self.$includeOnlineBoostersLabel.click(function () {
                     self.$includeOnlineBoosters.trigger("click");
@@ -46,10 +44,6 @@ Spellfire.Card =
                 self.$searchText.click(function () {
                     $(this).select();
                 });
-            },
-
-            redirectHome: function () {
-                window.location.href = "/";
             },
 
             renderPreviousSelections: function () {
@@ -70,7 +64,6 @@ Spellfire.Card =
                     self.$errorMessage.removeClass("hidden");
                 }
             },
-
 
             getCardList: function () {
 
@@ -174,4 +167,4 @@ Spellfire.Card =
 
         return module;
 
-    })(Spellfire.Card || {}, window.jQuery);
+    })(Spellfire.Home || {}, window.jQuery);

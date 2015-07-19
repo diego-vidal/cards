@@ -1,18 +1,17 @@
 ﻿@using Spellfire.Model
-@model Spellfire.Web.Models.HomeViewModel
+@model Spellfire.Web.Models.HandViewModel
 
 @{
     ViewBag.Title = "Hand";
-    var cards = Model.FilteredCards;
+    var cards = Model.Cards;
 
-    if (cards == null)
+    if (cards == null || !cards.Any())
     {
     <div style="padding-top: 10px;">
         <span style="color: red;">Hand is empty!</span>
     </div>
         return;
     }
-
 }
 
 <div id="errorMessage" class="alert alert-danger hidden" style="width: 280px;"></div>

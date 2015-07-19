@@ -147,9 +147,10 @@
     <Content Include="Scripts\amplify\amplify.request.min.js" />
     <Content Include="Scripts\amplify\amplify.store.js" />
     <Content Include="Scripts\amplify\amplify.store.min.js" />
+    <Content Include="Scripts\app\home.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\app\card.js" />
+    <Content Include="Scripts\app\layout.js" />
     <Content Include="Images\icons\ally.gif" />
     <Content Include="Images\icons\artifact.gif" />
     <Content Include="Images\icons\blank.gif" />
@@ -233,10 +234,12 @@
     <Compile Include="Attributes\ErrorHandlerAttribute.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\HandController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HandViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -247,16 +250,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Card\Index.cshtml" />
-    <Content Include="Views\Card\_CardList.cshtml" />
-    <Content Include="Views\Card\_CardDetail.cshtml" />
+    <Content Include="Views\Shared\_CardList.cshtml" />
+    <Content Include="Views\Shared\_CardDetail.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
-    <Content Include="Views\Card\_CardVertical.cshtml" />
-    <Content Include="Views\Card\_CardRule.cshtml" />
-    <Content Include="Views\Card\_CardDungeon.cshtml" />
+    <Content Include="Views\Shared\_CardVertical.cshtml" />
+    <Content Include="Views\Shared\_CardRule.cshtml" />
+    <Content Include="Views\Shared\_CardDungeon.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
-    <Content Include="Views\Card\_CardFooter.cshtml" />
-    <Content Include="Views\Card\Hand.cshtml" />
+    <Content Include="Views\Shared\_CardFooter.cshtml" />
+    <Content Include="Views\Hand\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
