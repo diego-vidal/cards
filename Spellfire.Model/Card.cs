@@ -21,7 +21,7 @@ namespace Spellfire.Model
         public string Power { get; set; }
         [StringLength(256)]
         public string Blueline { get; set; }
-        [Required, StringLength(4)]
+        [Required, StringLength(11)]
         public string Level { get; set; }
         [StringLength(32)]
         public string ImagePath { get; set; }

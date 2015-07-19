@@ -42,18 +42,15 @@ namespace Spellfire.Web.Controllers
                 case HandType.TwoCharLevel:
                     // Ally:2677, Artifact:2440, BloodAbility:3103, ClericSpell:2102, Holding:1508, MagItem:3096, PsionicPower:2791, ThiefSkill:3533, UnarmedCombat:3038, WizardSpell:1371
                     // Cleric:3488, Hero:2181, Monster:2194, Psionicist:3564, Realm:3478, Realm:1773, Regent:3159, Thief:3363, Wizard:3439
-                    sequenceNumbers = new List<int>() 
-                                  { 
-                                    2677, 2440, 3103, 2102, 1508, 3096, 2791, 3478, 1773, 3159, 3363, 3038, 1371,
-                                    3488, 2181, 2194, 3564, 3439
-                                  };
+                    sequenceNumbers = new List<int>() { 2677, 2440, 3103, 2102, 1508, 3096, 2791, 3478, 1773, 3159, 3363, 3038, 1371, 3488, 2181, 2194, 3564, 3439 };
                     break;
                 case HandType.ThreeCharLevel:
                     // Ally:3044, 3566, 3665, Artifact:2225, 2165, MagItem:2562, 3176, 3633, UnarmedCombat:3765, Hero:824, Monster:2903
-                    sequenceNumbers = new List<int>() 
-                                  { 
-                                    3044, 3566, 3665, 2225, 2165, 2562, 3176, 3633, 3765, 824, 2903
-                                  };
+                    sequenceNumbers = new List<int>() { 3044, 3566, 3665, 2225, 2165, 2562, 3176, 3633, 3765, 824, 2903 };
+                    break;
+                case HandType.FourCharLevel:
+                    // Artifact:156, 556, 1001, 1421, 2158, MagItem: 1893, 3510
+                    sequenceNumbers = new List<int>() { 156, 556, 1001, 1421, 2158, 1893, 3510 };
                     break;
                 default:
                     break;

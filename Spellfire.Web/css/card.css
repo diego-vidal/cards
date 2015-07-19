@@ -54,7 +54,7 @@
         color: black;
     }
 
-        .level.ally.three-char {
+        .level.ally.char-three {
             font-size: 14pt;
             top: 18px;
             left: -52px;
@@ -65,8 +65,16 @@
         left: -48px;
     }
 
-        .level.artifact.three-char {
-            left: -54px;
+        .level.artifact.char-three {
+            font-size: 14pt;
+            top: 18px;
+            left: -52px;
+        }
+
+        .level.artifact.char-four {
+            font-size: 9pt;
+            top: 25px;
+            left: -51px;
         }
 
     .level.blood-ability {
@@ -79,7 +87,7 @@
         top: 16px;
     }
 
-        .level.cleric.two-char {
+        .level.cleric.char-two {
             left: -49px;
         }
 
@@ -93,19 +101,20 @@
         color: black;
     }
 
-        .level.hero.two-char {
+        .level.hero.char-two {
             left: -52px;
         }
 
-        .level.hero.three-char {
-            left: -56px;
+        .level.hero.char-three {
+            font-size: 14pt;
+            left: -55px;
         }
 
     .level.holding {
         top: 4px;
     }
 
-        .level.holding.two-char {
+        .level.holding.char-two {
             left: -48px;
         }
 
@@ -114,21 +123,29 @@
         left: -48px;
     }
 
-        .level.magical-item.three-char {
+        .level.magical-item.char-three {
             font-size: 14pt;
             left: -53px;
+        }
+
+        .level.magical-item.char-four {
+            font-size: 7pt;
+            top: 34px;
+            left: -50px;
+            width: 32px;
         }
 
     .level.monster {
         top: 32px;
     }
 
-        .level.monster.two-char {
+        .level.monster.char-two {
             left: -48px;
         }
 
-        .level.monster.three-char {
-            left: -50px;
+        .level.monster.char-three {
+            font-size: 14pt;
+            left: -49px;
         }
 
     .level.psionicist {
@@ -136,7 +153,7 @@
         color: black;
     }
 
-        .level.psionicist.two-char {
+        .level.psionicist.char-two {
             left: -50px;
         }
 
@@ -150,7 +167,7 @@
         top: 34px;
     }
 
-        .level.realm.two-char {
+        .level.realm.char-two {
             left: -52px;
         }
 
@@ -158,7 +175,7 @@
         top: 24px;
     }
 
-        .level.regent.two-char {
+        .level.regent.char-two {
             left: -48px;
         }
 
@@ -166,7 +183,7 @@
         top: 32px;
     }
 
-        .level.thief.two-char {
+        .level.thief.char-two {
             left: -50px;
         }
 
@@ -176,7 +193,7 @@
         color: black;
     }
 
-        .level.unarmed-combat.three-char {
+        .level.unarmed-combat.char-three {
             font-size: 14pt;
             left: -53px;
         }
@@ -185,7 +202,7 @@
         top: 17px;
     }
 
-        .level.wizard.two-char {
+        .level.wizard.char-two {
             left: -48px;
         }
 

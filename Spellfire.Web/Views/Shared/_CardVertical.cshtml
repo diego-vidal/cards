@@ -8,20 +8,14 @@
     var powerClass = completePowerLength > 498 ? "text-small" : (completePowerLength > 324 ? "text-medium" : string.Empty);
     var iconKind = Model.CardKinds.Single(x => x.IsIcon).Kind;
     var iconClass = iconKind.Name.ToLower().Replace(" ", "-");
-    //var isChampion = Model.CardCharacteristics.SingleOrDefault(x => x.CardCharacteristicKey == (int)Spellfire.Model.CharacteristicKey.Champion) != null;
-    //var isChampion = iconKind.KindKey == KindKey.Cleric || iconKind.KindKey == KindKey.Hero || iconKind.KindKey == KindKey.Monster ||
-    //                 iconKind.KindKey == KindKey.Psionicist || iconKind.KindKey == KindKey.Regent ||
-    //                 iconKind.KindKey == KindKey.Thief || iconKind.KindKey == KindKey.Wizard;
-
-    //var championClass = isChampion ? "champion" : string.Empty;
-    var twoDigitClass = Model.Level.Length > 2 ? "three-char" : (Model.Level.Length > 1 ? "two-char" : string.Empty);
+    var levelClasses = Model.Level.Length > 3 ? "char-four" : (Model.Level.Length > 2 ? "char-three" : (Model.Level.Length > 1 ? "char-two" : string.Empty));
 }
 
 <div class="cardHeader">
     <div class="cardIcon pull-left">
         <img src="~/Images/icons/@Model.IconPath" alt="" />
     </div>
-    <div class="level @iconClass @twoDigitClass pull-left">@Model.Level</div>
+    <div class="level @iconClass @levelClasses pull-left">@Model.Level</div>
     <div class="cardWorld2  pull-right">
         <img src="~/Images/worlds/@Model.WorldPath" alt="" class="world @Model.WorldKey.GetDisplayShortName()"/>
     </div>
