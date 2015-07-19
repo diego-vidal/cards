@@ -36,6 +36,90 @@
     width: 150px;
 }
 
+.level.ally {
+    font-size: 18pt;
+    position: relative;
+    top: 15px;
+    left: -50px;
+    color: black;
+}
+
+.level.artifact {
+    font-size: 19pt;
+    position: relative;
+    top: 17px;
+    left: -48px;
+    color: white;
+}
+
+.level.magicalitem {
+    font-size: 19pt;
+    position: relative;
+    top: 28px;
+    left: -51px;
+    color: white;
+}
+
+    .level.magicalitem.three-char {
+        font-size: 19pt;
+        left: -51px;
+    }
+
+.level.holding {
+    font-size: 19pt;
+    position: relative;
+    top: 28px;
+    left: -42px;
+    color: white;
+}
+
+.level.realm {
+    font-size: 19pt;
+    position: relative;
+    top: 28px;
+    left: -42px;
+    color: white;
+}
+
+.level.champion {
+    font-size: 19pt;
+    position: relative;
+    top: 28px;
+    left: -42px;
+    color: white;
+}
+
+    .level.champion.two-char {
+        left: -48px;
+    }
+
+.level.cleric {
+    top: 16px;
+}
+
+.level.hero {
+    top: 16px;
+    left: -45px;
+    color: black;
+}
+
+.level.psionicist {
+    top: 10px;
+    left: -44px;
+}
+
+.level.regent {
+    top: 20px;
+}
+
+.level.thief {
+    left: -44px;
+}
+
+.level.wizard {
+    top: 15px;
+}
+
 .blueline {
     color: blue;
 }
