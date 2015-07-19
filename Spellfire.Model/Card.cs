@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Spellfire.Common.Extensions;
 
 namespace Spellfire.Model
 {
@@ -44,6 +45,22 @@ namespace Spellfire.Model
                 var iconPath = cardType != null && cardType.Kind != null ? cardType.Kind.IconPath : "blank.gif";
 
                 return iconPath;
+            }
+        }
+        public string WorldPath
+        {
+            get
+            {
+                if (this.World.WorldKey != WorldKey.DarkSun)
+                {
+                    return this.World.ImagePath;
+                }
+
+                // Darksun's logo was changed for 4th Edition, Draconomicon, Nightstalker and Dungeons. Online boosters used old logo.
+                var hasDarksunNewLogo = this.Booster.SortOrder >= 13 && this.Booster.SortOrder <= 16;
+
+                // If the new logo needed, convert "ds.png" into "ds2.png"
+                return hasDarksunNewLogo ? this.World.ImagePath.Insert(2, "2") : this.World.ImagePath;
             }
         }
 

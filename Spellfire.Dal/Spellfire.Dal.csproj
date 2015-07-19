@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201503081712586_AddLogging.Designer.cs">
       <DependentUpon>201503081712586_AddLogging.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507192055338_AddedBoosterSortOrder.cs" />
+    <Compile Include="Migrations\201507192055338_AddedBoosterSortOrder.Designer.cs">
+      <DependentUpon>201507192055338_AddedBoosterSortOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\CardRepository.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="Interfaces\IDataAccess.cs" />
@@ -92,6 +96,9 @@
     <EmbeddedResource Include="Migrations\201503081712586_AddLogging.resx">
       <DependentUpon>201503081712586_AddLogging.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507192055338_AddedBoosterSortOrder.resx">
+      <DependentUpon>201507192055338_AddedBoosterSortOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

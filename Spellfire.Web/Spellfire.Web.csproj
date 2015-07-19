@@ -134,6 +134,7 @@
     <Content Include="Images\worlds\br.png" />
     <Content Include="Images\worlds\dl.png" />
     <Content Include="Images\worlds\ds.png" />
+    <Content Include="Images\worlds\ds2.png" />
     <Content Include="Images\worlds\fr.png" />
     <Content Include="Images\worlds\gh.png" />
     <Content Include="Images\worlds\rl.png" />
