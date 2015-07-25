@@ -121,7 +121,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="css\card.css" />
-    <Content Include="css\index.css" />
+    <Content Include="css\home.css" />
     <Content Include="css\css3.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -237,6 +237,7 @@
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HandController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -261,6 +262,7 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Views\Shared\_CardFooter.cshtml" />
     <Content Include="Views\Hand\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

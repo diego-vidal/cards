@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D24E6BE-01C7-4997-B7BB-152B133316A1}</ProjectGuid>
+    <ProjectGuid>{DC482385-E74F-4A0C-99CA-6AA7A154A5F2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Spellfire.Model</RootNamespace>
-    <AssemblyName>Spellfire.Model</AssemblyName>
+    <RootNamespace>Spellfire.Security</RootNamespace>
+    <AssemblyName>Spellfire.Security</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,35 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Characteristic.cs" />
-    <Compile Include="CharacteristicKey.cs" />
-    <Compile Include="Booster.cs" />
-    <Compile Include="BoosterKey.cs" />
-    <Compile Include="Card.cs" />
-    <Compile Include="CardCharacteristic.cs" />
-    <Compile Include="CardPhase.cs" />
-    <Compile Include="CardKind.cs" />
-    <Compile Include="Log.cs" />
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rarity.cs" />
-    <Compile Include="RarityKey.cs" />
-    <Compile Include="Kind.cs" />
-    <Compile Include="KindKey.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserCard.cs" />
-    <Compile Include="World.cs" />
-    <Compile Include="WorldKey.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Spellfire.Common\Spellfire.Common.csproj">
-      <Project>{aa89eaeb-69a5-4c53-8934-26991f34fa73}</Project>
-      <Name>Spellfire.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

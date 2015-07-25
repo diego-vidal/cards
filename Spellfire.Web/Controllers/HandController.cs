@@ -27,8 +27,8 @@ namespace Spellfire.Web.Controllers
             switch (id)
             {
                 case HandType.Rules:
-                    // ADD:2196, ADD2:none, BR:3140, DS:2258, DR:none, DL:2370,  FR:2552, GH:1694, NS:none, RL:2259
-                    sequenceNumbers = new List<int>() { 2196, 3140, 2258, 2370, 2552, 1694, 2259 };
+                    // SmallText: 2613, ADD:2196, ADD2:none, BR:3140, DS:2258, DR:none, DL:2370,  FR:2552, GH:1694, NS:none, RL:2259
+                    sequenceNumbers = new List<int>() { 2613, 2196, 3140, 2258, 2370, 2552, 1694, 2259 };
                     break;
                 case HandType.Dungeons:
                     // ADD:3444, ADD2:none, BR:3445, DS:3446, DR:none, DL:3447,  FR:3448, GH:3449, NS:none, RL:3450
@@ -49,8 +49,8 @@ namespace Spellfire.Web.Controllers
                     sequenceNumbers = new List<int>() { 3044, 3566, 3665, 2225, 2165, 2562, 3176, 3633, 3765, 824, 2903 };
                     break;
                 case HandType.FourCharLevel:
-                    // Artifact:156, 556, 1001, 1421, 2158, MagItem: 1893, 3510
-                    sequenceNumbers = new List<int>() { 156, 556, 1001, 1421, 2158, 1893, 3510 };
+                    // MagItem: 1893, 3510, Artifact:156, 556, 1001, 1421, 2158
+                    sequenceNumbers = new List<int>() { 1893, 3510, 156, 556, 1001, 1421, 2158 };
                     break;
                 default:
                     break;

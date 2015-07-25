@@ -32,6 +32,14 @@
     margin-right: 10px;
 }
 
+img.ds {
+    width: 140px;
+}
+
+img.ds2 {
+    width: 110px;
+}
+
 .world {
     width: 150px;
 }
@@ -249,7 +257,6 @@
 
     .card .cardRuleTitle { /* cardName */
         height: 45px;
-        position: relative;
     }
 
     .card .cardPower {

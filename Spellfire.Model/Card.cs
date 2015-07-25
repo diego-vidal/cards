@@ -51,16 +51,14 @@ namespace Spellfire.Model
         {
             get
             {
+                // TODO: Remove once database has this info
                 if (this.World.WorldKey != WorldKey.DarkSun)
                 {
                     return this.World.ImagePath;
                 }
 
-                // Darksun's logo was changed for 4th Edition, Draconomicon, Nightstalker and Dungeons. Online boosters used old logo.
-                var hasDarksunNewLogo = this.Booster.SortOrder >= 13 && this.Booster.SortOrder <= 16;
-
                 // If the new logo needed, convert "ds.png" into "ds2.png"
-                return hasDarksunNewLogo ? this.World.ImagePath.Insert(2, "2") : this.World.ImagePath;
+                return HasDarkSunNewLogo() ? this.World.ImagePath.Insert(2, "2") : this.World.ImagePath;
             }
         }
 
@@ -83,6 +81,14 @@ namespace Spellfire.Model
             CardCharacteristics = new List<CardCharacteristic>();
             CardKinds = new List<CardKind>();
             CardPhases = new List<CardPhase>();
+        }
+
+        /// <summary>
+        /// Darksun's logo was changed for 4th Edition, Draconomicon, Nightstalker and Dungeons. Online boosters used old logo.
+        /// </summary>
+        public bool HasDarkSunNewLogo()
+        {
+            return this.Booster.SortOrder >= 13 && this.Booster.SortOrder <= 16;
         }
     }
 }

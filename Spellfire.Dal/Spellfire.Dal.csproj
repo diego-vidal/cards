@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201507192326351_IncreasedLevelLength.Designer.cs">
       <DependentUpon>201507192326351_IncreasedLevelLength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507252157488_AddedUserInfo.cs" />
+    <Compile Include="Migrations\201507252157488_AddedUserInfo.Designer.cs">
+      <DependentUpon>201507252157488_AddedUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\CardRepository.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="Interfaces\IDataAccess.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507192326351_IncreasedLevelLength.resx">
       <DependentUpon>201507192326351_IncreasedLevelLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507252157488_AddedUserInfo.resx">
+      <DependentUpon>201507252157488_AddedUserInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

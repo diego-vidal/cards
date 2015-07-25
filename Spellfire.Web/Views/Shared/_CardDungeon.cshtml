@@ -1,8 +1,17 @@
-﻿@model Spellfire.Model.Card
+﻿@using Spellfire.Model
+@using Spellfire.Common.Extensions
+@model Card
+
+@{
+    // TODO: Remove once database has this info
+    var worldClass = Model.World.WorldKey == WorldKey.DarkSun && Model.HasDarkSunNewLogo()
+                        ? Model.WorldKey.GetDisplayShortName() + "2"
+                        : Model.WorldKey.GetDisplayShortName();
+}
 
 <div class="cardRuleHeader">
     <div class="cardWorld pull-left">
-        <img src="~/Images/worlds/@Model.WorldPath" alt="" class="world"/>
+        <img src="~/Images/worlds/@Model.WorldPath" alt="" class="world @worldClass"/>
     </div>
     <div class="pull-right">Dungeon</div>
 </div>

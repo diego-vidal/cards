@@ -1,6 +1,6 @@
 ﻿@using Spellfire.Model
 @using Spellfire.Common.Extensions
-@model Spellfire.Model.Card
+@model Card
 
 @{
     var bluelineLength = Model.Blueline != null ? Model.Blueline.Length : 0;
@@ -9,6 +9,10 @@
     var iconKind = Model.CardKinds.Single(x => x.IsIcon).Kind;
     var iconClass = iconKind.Name.ToLower().Replace(" ", "-");
     var levelClasses = Model.Level.Length > 3 ? "char-four" : (Model.Level.Length > 2 ? "char-three" : (Model.Level.Length > 1 ? "char-two" : string.Empty));
+    // TODO: Remove once database has this info
+    var worldClass = Model.World.WorldKey == WorldKey.DarkSun && Model.HasDarkSunNewLogo()
+                        ? Model.WorldKey.GetDisplayShortName() + "2"
+                        : Model.WorldKey.GetDisplayShortName();
 }
 
 <div class="cardHeader">
@@ -17,7 +21,7 @@
     </div>
     <div class="level @iconClass @levelClasses pull-left">@Model.Level</div>
     <div class="cardWorld2  pull-right">
-        <img src="~/Images/worlds/@Model.WorldPath" alt="" class="world @Model.WorldKey.GetDisplayShortName()"/>
+        <img src="~/Images/worlds/@Model.WorldPath" alt="" class="world @worldClass"/>
     </div>
 </div>
 <div class="cardTitle2">

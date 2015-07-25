@@ -19,7 +19,7 @@
 
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 
-    <title>@ViewBag.Title</title>
+    <title>Spellfire - @ViewBag.Title</title>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -34,20 +34,21 @@
                     <img src="~/Images/spellfire.gif" class="logo" />
                 </div>
             </div>
-            @if (Request.IsLocal)
-            {
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="~/">Search</a></li>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="~/">Search</a></li>
+                    @if (Request.IsLocal)
+                    {
                         <li><a href="~/Hand/Index/0">Rules</a></li>
                         <li><a href="~/Hand/Index/1">Dungeons</a></li>
                         <li><a href="~/Hand/Index/2">1-char Lv</a></li>
                         <li><a href="~/Hand/Index/3">2-char Lv</a></li>
                         <li><a href="~/Hand/Index/4">3-char Lv</a></li>
                         <li><a href="~/Hand/Index/5">4-char Lv</a></li>
-                    </ul>
-                </div>
-            }
+                    }
+                    <li><a href="~/Login">Login</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
