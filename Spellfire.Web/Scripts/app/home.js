@@ -48,13 +48,8 @@ Spellfire.Home =
 
             renderPreviousSelections: function () {
 
-                if (self.$storedSelections.searchText) {
-                    self.$searchText.val(self.$storedSelections.searchText);
-                }
-
-                if (self.$storedSelections.includeOnlineBoosters) {
-                    self.$includeOnlineBoosters.prop('checked', self.$storedSelections.includeOnlineBoosters);
-                }
+                self.$searchText.val(self.$searchText.val() || self.$storedSelections.searchText || "spellfire");
+                self.$includeOnlineBoosters.prop('checked', self.$storedSelections.includeOnlineBoosters);
             },
 
             displayError: function (message) {
