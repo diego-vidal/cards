@@ -45,13 +45,16 @@ namespace Spellfire.Dal
             return card;
         }
 
-        public Card GetByBoosterAndNumber(BoosterKey boosterKey, int number, params Expression<Func<Card, object>>[] includes)
+        public Card GetByBoosterAndNumber(BoosterKey boosterKey, int number, bool isChase = false, params Expression<Func<Card, object>>[] includes)
         {
             var card = Context.Cards
                               .AddIncludes(includes)
-                              .FirstOrDefault(x => x.BoosterKey == boosterKey && x.Number == number);
+                              .Where(x => x.BoosterKey == boosterKey && x.Number == number);
 
-            return card;
+            return isChase
+                   ? card.FirstOrDefault(x => x.RarityKey == RarityKey.VeryRare)
+                   : card.FirstOrDefault(x => x.RarityKey != RarityKey.VeryRare);
+
         }
 
         //public ICollection<DailyCase> GetBySearchCriteria(Guid companyKey, Guid userProfileKey, int start, int? maxResults, 

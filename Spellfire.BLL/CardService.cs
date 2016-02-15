@@ -48,12 +48,20 @@ namespace Spellfire.BLL
             int cardNnumber;
             var strNumber = cardTag.Substring(boosterLen, cardTag.Length - boosterLen);
 
-            if (!int.TryParse(strNumber, out cardNnumber))
+            if (int.TryParse(strNumber, out cardNnumber))
             {
-                return null;
+                return _dal.Cards.GetByBoosterAndNumber(boosterKey, cardNnumber, false, x => x.CardKinds, x => x.Booster);
             }
 
-            return _dal.Cards.GetByBoosterAndNumber(boosterKey, cardNnumber, x => x.CardKinds, x => x.Booster);
+            var chaseNumber = strNumber.Substring(0, strNumber.Length - 1);
+            var isChaseCharacter = strNumber.Substring(strNumber.Length - 1, 1) == "c";
+
+            if (isChaseCharacter && int.TryParse(chaseNumber, out cardNnumber))
+            {
+                return _dal.Cards.GetByBoosterAndNumber(boosterKey, cardNnumber, true, x => x.CardKinds, x => x.Booster);
+            }
+
+            return null;
         }
     }
 }
