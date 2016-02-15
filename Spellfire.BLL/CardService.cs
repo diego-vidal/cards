@@ -10,6 +10,8 @@ namespace Spellfire.BLL
 {
     public class CardService : ICardService
     {
+        private const string ChaseCharacter = "c";
+
         private IDataAccess _dal;
 
         public CardService(IDataAccess dal)
@@ -29,7 +31,7 @@ namespace Spellfire.BLL
             var boosterKey = Enum.GetValues(typeof(BoosterKey)).Cast<BoosterKey>()
                                  .SingleOrDefault(x => string.Equals(x.GetDisplayShortName(), firstTwo, StringComparison.InvariantCultureIgnoreCase));
 
-
+            // ToDo: Add BoosterKey.None = 0
             if (boosterKey == BoosterKey.NoEdition)
             {
                 boosterLen = 3;
@@ -45,20 +47,22 @@ namespace Spellfire.BLL
                 }
             }
 
-            int cardNnumber;
-            var strNumber = cardTag.Substring(boosterLen, cardTag.Length - boosterLen);
+            var cardNumberAsText = cardTag.Substring(boosterLen, cardTag.Length - boosterLen);
+            var isChase = false;
 
-            if (int.TryParse(strNumber, out cardNnumber))
+            int cardNnumber;
+            if (int.TryParse(cardNumberAsText, out cardNnumber))
             {
-                return _dal.Cards.GetByBoosterAndNumber(boosterKey, cardNnumber, false, x => x.CardKinds, x => x.Booster);
+                return _dal.Cards.GetByBoosterAndNumber(boosterKey, cardNnumber, isChase, x => x.CardKinds, x => x.Booster);
             }
 
-            var chaseNumber = strNumber.Substring(0, strNumber.Length - 1);
-            var isChaseCharacter = strNumber.Substring(strNumber.Length - 1, 1) == "c";
+            var chaseNumberAsText = cardNumberAsText.Substring(0, cardNumberAsText.Length - 1);
+            var isChaseCharacter = cardNumberAsText.Substring(cardNumberAsText.Length - 1, 1) == ChaseCharacter;
 
-            if (isChaseCharacter && int.TryParse(chaseNumber, out cardNnumber))
+            if (isChaseCharacter && int.TryParse(chaseNumberAsText, out cardNnumber))
             {
-                return _dal.Cards.GetByBoosterAndNumber(boosterKey, cardNnumber, true, x => x.CardKinds, x => x.Booster);
+                isChase = true;
+                return _dal.Cards.GetByBoosterAndNumber(boosterKey, cardNnumber, isChase, x => x.CardKinds, x => x.Booster);
             }
 
             return null;
