@@ -2,6 +2,7 @@
 using Autofac.Builder;
 using Autofac.Core;
 using Autofac.Integration.Mvc;
+using Spellfire.BLL;
 using Spellfire.Common.Extensions;
 using Spellfire.Dal;
 using Spellfire.Web.Controllers;
@@ -50,28 +51,17 @@ namespace Spellfire.Web
             builder.RegisterFilterProvider();
 
             RegisterDal(builder);
+            RegisterBll(builder);
 
             // register HttpContextBase
             builder.Register(c => new HttpContextWrapper(HttpContext.Current)).As<HttpContextBase>().InstancePerRequest();
-
-            // register asynchronous task runner
-            //builder.Register(x => new AutofacAsyncRunner(GetAutofacContainer(), Autofac.Core.Lifetime.MatchingScopeLifetimeTags.RequestLifetimeScopeTag))
-            //       .As<IAsyncRunner>()
-            //       .InstancePerRequest();
-
-            // register all other components as their implemented interfaces
-            // (this is a catch-all for types that weren't explicitly registered)
-            //builder.RegisterAssemblyTypes(executingAssembly, typeof(ICsvFactory).Assembly)
-            //        .Where(t => !(typeof(ICronJob).IsAssignableFrom(t)))
-            //       .AsImplementedInterfaces()
-            //       .PreserveExistingDefaults()
-            //       .InstancePerRequest();
         }
 
-        /// <summary>
-        /// Register all data access layer dependencies for <c>AutoFac</c>
-        /// </summary>
-        /// <param name="builder">A container builder</param>
+        private static void RegisterBll(ContainerBuilder builder)
+        {
+            builder.RegisterType<CardService>().As<ICardService>().InstancePerRequest();
+        }
+
         private static void RegisterDal(ContainerBuilder builder)
         {
             // EF context
@@ -116,10 +106,6 @@ namespace Spellfire.Web
         /// Registers a factory method (<c>Func&lt;TKey,TService&gt;</c>) that resolves objects of type
         /// <typeparamref name="TService"/> using a key of type <typeparamref name="TKey"/>
         /// </summary>
-        /// <typeparam name="TKey">the type of the key</typeparam>
-        /// <typeparam name="TService">the type of the service</typeparam>
-        /// <param name="builder"></param>
-        /// <returns></returns>
         public static IRegistrationBuilder<Func<TKey, TService>, SimpleActivatorData, SingleRegistrationStyle> RegisterFactoryMethod<TKey, TService>(this ContainerBuilder builder)
             where TService : class
         {

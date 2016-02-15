@@ -46,5 +46,7 @@ namespace Spellfire.Model
         Chaos = 19,
         [Display(Name = "Conquest", ShortName = "CQ")]
         Conquest = 20,
+
+        None = 21,
     }
 }

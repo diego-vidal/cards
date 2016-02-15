@@ -3,7 +3,7 @@
 @{
     var cardCountMessage = Model.SearchCount > Model.FilteredCards.Count()
                             ? string.Format("Showing {0} of {1} cards for '{2}'", Model.FilteredCards.Count(), Model.SearchCount, Model.SearchText)
-                            : string.Format("{0} cards found for '{1}' ", Model.SearchCount, Model.SearchText);
+                            : string.Format("{0} card{1} found for '{2}' ", Model.SearchCount, Model.SearchCount == 1 ? string.Empty : "s", Model.SearchText);
 }
 
 <div id="resultsMessage">

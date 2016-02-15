@@ -45,6 +45,15 @@ namespace Spellfire.Dal
             return card;
         }
 
+        public Card GetByBoosterAndNumber(BoosterKey boosterKey, int number, params Expression<Func<Card, object>>[] includes)
+        {
+            var card = Context.Cards
+                              .AddIncludes(includes)
+                              .FirstOrDefault(x => x.BoosterKey == boosterKey && x.Number == number);
+
+            return card;
+        }
+
         //public ICollection<DailyCase> GetBySearchCriteria(Guid companyKey, Guid userProfileKey, int start, int? maxResults, 
         //    ICollection<DailyCaseSearchCriteria> searchCriteria, out int totalCount, bool excludeUnpublished, params Expression<Func<DailyCase, object>>[] includes)
         //{

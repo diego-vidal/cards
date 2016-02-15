@@ -28,6 +28,7 @@ Spellfire.Home =
                 self.$cardList = $("#cardList");
                 self.$cardDetail = $("#cardDetail");
 
+
                 self.$storedSelections = amplify.store();
 
                 self.renderPreviousSelections();
@@ -47,7 +48,6 @@ Spellfire.Home =
             },
 
             renderPreviousSelections: function () {
-
                 self.$searchText.val(self.$searchText.val() || self.$storedSelections.searchText || "spellfire");
                 self.$includeOnlineBoosters.prop('checked', self.$storedSelections.includeOnlineBoosters);
             },
@@ -80,7 +80,7 @@ Spellfire.Home =
                 $.ajax({
                     type: "GET",
                     url: "Card/List",
-                    data: { searchText: searchText, includeOnlineBoosters: includeOnlineBoosters },
+                    data: { search: searchText, includeOnlineBoosters: includeOnlineBoosters },
                     cache: true
                 })
                 .done(function (result) {
@@ -139,7 +139,7 @@ Spellfire.Home =
 
                 var code = e.keycode ? e.keycode : e.which;
 
-                if (code == 13) { //ENTER
+                if (code === 13) { //ENTER
                     e.preventDefault();
                     self.$search.click();
                 }

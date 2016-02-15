@@ -1,5 +1,8 @@
-﻿using Spellfire.Dal;
+﻿using Spellfire.BLL;
+using Spellfire.Dal;
+using Spellfire.Model;
 using Spellfire.Web.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -9,38 +12,48 @@ namespace Spellfire.Web.Controllers
     {
         private const int MaxCardListCount = 10;
         private IDataAccess _dal;
+        private ICardService _cardService;
 
-        public CardController(IDataAccess dal)
+        public CardController(IDataAccess dal, ICardService cardService)
         {
             _dal = dal;
+            _cardService = cardService;
         }
 
-        public ActionResult Index(string searchText)
+        public ActionResult Index(string search)
         {
             var viewModel = new HomeViewModel()
             {
-                SearchText = searchText,
+                SearchText = search,
             };
 
             return View(viewModel);
         }
 
-        public ActionResult List(string searchText, bool includeOnlineBoosters)
+        public ActionResult List(string search, bool includeOnlineBoosters)
         {
-            var cards = _dal.Cards.GetByName(searchText, includeOnlineBoosters, x => x.CardKinds, x => x.Booster);
-            var filteredCards = cards.Take(MaxCardListCount);
-
-            foreach (var card in filteredCards)
-            {
-                _dal.Cards.LoadCollection(card, c => c.CardKinds, null, c => c.Kind);
-            }
+            var card = _cardService.GetCardByTag(search);
 
             var viewModel = new HomeViewModel()
             {
-                SearchText = searchText,
-                SearchCount = cards.Count(),
-                FilteredCards = filteredCards
+                SearchText = search,
+                SearchCount = 1,
+                FilteredCards = card == null ? new List<Card>() : new List<Card> { card },
             };
+
+            if (!viewModel.FilteredCards.Any())
+            {
+                var cardsByName = _dal.Cards.GetByName(search, includeOnlineBoosters, x => x.CardKinds, x => x.Booster);
+                var filteredCards = cardsByName.Take(MaxCardListCount);
+
+                foreach (var fc in filteredCards)
+                {
+                    _dal.Cards.LoadCollection(fc, c => c.CardKinds, null, c => c.Kind);
+                }
+
+                viewModel.SearchCount = cardsByName.Count();
+                viewModel.FilteredCards = filteredCards;
+            }
 
             return PartialView("_CardList", viewModel);
         }
@@ -49,9 +62,12 @@ namespace Spellfire.Web.Controllers
         {
             var card = _dal.Cards.GetBySequenceNumber(id, c => c.Booster, c => c.Rarity, c => c.World);
 
-            _dal.Cards.LoadCollection(card, c => c.CardCharacteristics, null, c => c.Characteristic);
-            _dal.Cards.LoadCollection(card, c => c.CardKinds, null, c => c.Kind);
-            _dal.Cards.LoadCollection(card, c => c.CardPhases);
+            if (card != null)
+            {
+                _dal.Cards.LoadCollection(card, c => c.CardCharacteristics, null, c => c.Characteristic);
+                _dal.Cards.LoadCollection(card, c => c.CardKinds, null, c => c.Kind);
+                _dal.Cards.LoadCollection(card, c => c.CardPhases);
+            }
 
             var viewModel = new HomeViewModel()
             {

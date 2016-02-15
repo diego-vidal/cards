@@ -21,5 +21,10 @@ namespace Spellfire.Web.Models
             }
         }
         public Card SelectedCard { get; set; }
+
+        public HomeViewModel()
+        {
+            FilteredCards = new List<Card>();
+        }
     }
 }
