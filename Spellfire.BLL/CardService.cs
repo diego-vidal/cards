@@ -19,6 +19,11 @@ namespace Spellfire.BLL
             _dal = dal;
         }
 
+        /// <summary>
+        /// Returns a Card by its tag: booster name concatenated with its number (c for Chase)
+        /// </summary>
+        /// <param name="cardTag">[Booster][Number][c] i.e. 3rd400, ns3, dr67c, po100</param>
+        /// <returns></returns>
         public Card GetCardByTag(string cardTag)
         {
             if (string.IsNullOrEmpty(cardTag))

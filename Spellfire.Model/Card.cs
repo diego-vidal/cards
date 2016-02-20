@@ -84,7 +84,7 @@ namespace Spellfire.Model
         }
 
         /// <summary>
-        /// Darksun's logo was changed for 4th Edition, Draconomicon, Nightstalker and Dungeons. Online boosters used old logo.
+        /// Darksun's logo was changed for 4th Edition, Draconomicon, Nightstalker and Dungeons. Online boosters use old logo.
         /// </summary>
         public bool HasDarkSunNewLogo()
         {
