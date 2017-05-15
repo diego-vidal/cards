@@ -10,7 +10,7 @@ namespace Spellfire.Web.Controllers
 {
     public class CardController : BaseController
     {
-        private const int MaxCardListCount = 10;
+        private const int MaxCardListCount = 100;
         private IDataAccess _dal;
         private ICardService _cardService;
 
@@ -37,21 +37,19 @@ namespace Spellfire.Web.Controllers
             var viewModel = new HomeViewModel()
             {
                 SearchText = search,
-                SearchCount = 1,
                 FilteredCards = card == null ? new List<Card>() : new List<Card> { card },
             };
 
             if (!viewModel.FilteredCards.Any())
             {
-                var cardsByName = _dal.Cards.GetByName(search, includeOnlineBoosters, x => x.CardKinds, x => x.Booster);
-                var filteredCards = cardsByName.Take(MaxCardListCount);
+                var filteredCards = _dal.Cards.GetByName(search, includeOnlineBoosters, MaxCardListCount, x => x.CardKinds, x => x.Booster);
 
                 foreach (var fc in filteredCards)
                 {
                     _dal.Cards.LoadCollection(fc, c => c.CardKinds, null, c => c.Kind);
                 }
 
-                viewModel.SearchCount = cardsByName.Count();
+                viewModel.MaxCardListCount = MaxCardListCount;
                 viewModel.FilteredCards = filteredCards;
             }
 

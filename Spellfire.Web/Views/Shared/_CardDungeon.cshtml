@@ -3,6 +3,8 @@
 @model Card
 
 @{
+    var nameClass = Model.Name.Length > 38 ? "text-medium" : string.Empty;
+
     // TODO: Remove once database has this info
     var worldClass = Model.World.WorldKey == WorldKey.DarkSun && Model.HasDarkSunNewLogo()
                         ? Model.WorldKey.GetDisplayShortName() + "2"
@@ -16,6 +18,6 @@
     <div class="pull-right">Dungeon</div>
 </div>
 <div class="cardRuleTitle">
-    <div class="cardRuleName pull-left" title="@Model.Name">@Model.Name</div>
+    <div class="cardRuleName pull-left @nameClass" title="@Model.Name">@Model.Name</div>
 </div>
 <div class="cardRulePower">@Model.Power <span class="blueline" title="Blueline">@Model.Blueline</span></div>

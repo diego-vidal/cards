@@ -1,3 +1,8 @@
 ﻿#includeOnlineBoostersLabel {
     font-weight: normal;
 }
+
+#cardResults {
+    max-height: 380px;
+    overflow-y: auto;
+}

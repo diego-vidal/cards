@@ -21,35 +21,28 @@ namespace Spellfire.Dal
         {
         }
 
-        public ICollection<Card> GetByName(string name, bool includeOnlineBoosters, params Expression<Func<Card, object>>[] includes)
+        public ICollection<Card> GetByName(string name, bool includeOnlineBoosters = false, int top = 1000, params Expression<Func<Card, object>>[] includes)
         {
-
-            var query = Context.Cards
-                               .AddIncludes(includes)
-                               .Where(x => x.Name.Contains(name));
+            var query = Context.Cards.AddIncludes(includes).Where(x => x.Name.Contains(name) || x.Power.Contains(name) || x.Blueline.Contains(name));
 
             if (!includeOnlineBoosters)
             {
                 query = query.Where(x => !_onlineBoosterKeys.Contains(x.BoosterKey));
             }
 
-            return query.ToList();
+            return query.Take(top).ToList();
         }
 
         public Card GetBySequenceNumber(int sequenceNumber, params Expression<Func<Card, object>>[] includes)
         {
-            var card = Context.Cards
-                              .AddIncludes(includes)
-                              .FirstOrDefault(x => x.SequenceNumber == sequenceNumber);
+            var card = Context.Cards.AddIncludes(includes).FirstOrDefault(x => x.SequenceNumber == sequenceNumber);
 
             return card;
         }
 
         public Card GetByBoosterAndNumber(BoosterKey boosterKey, int number, bool isChase = false, params Expression<Func<Card, object>>[] includes)
         {
-            var card = Context.Cards
-                              .AddIncludes(includes)
-                              .Where(x => x.BoosterKey == boosterKey && x.Number == number);
+            var card = Context.Cards.AddIncludes(includes).Where(x => x.BoosterKey == boosterKey && x.Number == number);
 
             return isChase
                    ? card.FirstOrDefault(x => x.RarityKey == RarityKey.VeryRare)
