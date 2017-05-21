@@ -46,9 +46,15 @@ Spellfire.Home = (function (module, $) {
                 self.$errorMessage.html(message);
                 self.$errorMessage.removeClass("hidden");
             }
+        },       
+        
+        hideError: function () {
+            self.$errorMessage.addClass("hidden");
         },
 
         getCardList: function () {
+            self.hideError();
+
             var searchText = self.$searchText.val();
             if (!searchText) {
                 return;
