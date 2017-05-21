@@ -1,20 +1,14 @@
 ﻿var Spellfire = window.Spellfire || {};
 
-Spellfire.Common =
-    (function (module, $) {
+Spellfire.Common = (function (module, $) {
+    "use strict";
 
-        "use strict";
+    module.init = function () {
+    };
 
-        // Public
-        module.init = function () {
+    var self = {
+    };
 
-        };
+    return module;
 
-        // Private
-        var self = {
-
-        };
-
-        return module;
-
-    })(Spellfire.Common || {}, window.jQuery);
+})(Spellfire.Common || {}, window.jQuery);

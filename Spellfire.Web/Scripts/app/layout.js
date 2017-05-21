@@ -1,43 +1,28 @@
 ﻿var Spellfire = window.Spellfire || {};
 
-Spellfire.Layout =
-    (function (module, $) {
+Spellfire.Layout = (function (module, $) {
+    "use strict";
 
-        "use strict";
+    module.init = function () {
+        self.initilizeVariables();
+        self.attachHandlers();
+    };
 
-        // Public
-        module.init = function () {
+    var self = {
 
-            self.initilizeVariables();
-            self.attachHandlers();
-        };
+        initilizeVariables: function () {
+            self.$logo = $("#logo");
+        },
 
-        // Private
-        var self = {
+        attachHandlers: function () {
+            self.$logo.on("click", self.redirectHome);
+        },
 
-            initilizeVariables: function () {
+        redirectHome: function () {
+            window.location.href = "/";
+        },
+    };
 
-                self.$logo = $("#logo");
-            },
+    return module;
 
-            attachHandlers: function () {
-
-                self.$logo.on("click", self.redirectHome);
-            },
-
-            redirectHome: function () {
-                window.location.href = "/";
-            },
-
-            //displayError: function (message) {
-
-            //    if (message) {
-            //        self.$errorMessage.html(message);
-            //        self.$errorMessage.removeClass("hidden");
-            //    }
-            //},
-        };
-
-        return module;
-
-    })(Spellfire.Layout || {}, window.jQuery);
+})(Spellfire.Layout || {}, window.jQuery);
