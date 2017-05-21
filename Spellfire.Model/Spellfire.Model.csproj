@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
   </ItemGroup>
@@ -48,8 +49,16 @@
     <Compile Include="RarityKey.cs" />
     <Compile Include="Kind.cs" />
     <Compile Include="KindKey.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserCard.cs" />
     <Compile Include="World.cs" />
     <Compile Include="WorldKey.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Spellfire.Common\Spellfire.Common.csproj">
+      <Project>{aa89eaeb-69a5-4c53-8934-26991f34fa73}</Project>
+      <Name>Spellfire.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

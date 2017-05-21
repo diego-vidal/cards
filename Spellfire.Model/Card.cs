@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Spellfire.Common.Extensions;
 
 namespace Spellfire.Model
 {
@@ -20,7 +21,7 @@ namespace Spellfire.Model
         public string Power { get; set; }
         [StringLength(256)]
         public string Blueline { get; set; }
-        [Required, StringLength(4)]
+        [Required, StringLength(11)]
         public string Level { get; set; }
         [StringLength(32)]
         public string ImagePath { get; set; }
@@ -46,6 +47,20 @@ namespace Spellfire.Model
                 return iconPath;
             }
         }
+        public string WorldPath
+        {
+            get
+            {
+                // TODO: Remove once database has this info
+                if (this.World.WorldKey != WorldKey.DarkSun)
+                {
+                    return this.World.ImagePath;
+                }
+
+                // If the new logo needed, convert "ds.png" into "ds2.png"
+                return HasDarkSunNewLogo() ? this.World.ImagePath.Insert(2, "2") : this.World.ImagePath;
+            }
+        }
 
         public ICollection<CardCharacteristic> CardCharacteristics { get; set; }
         public ICollection<CardKind> CardKinds { get; set; }
@@ -66,6 +81,14 @@ namespace Spellfire.Model
             CardCharacteristics = new List<CardCharacteristic>();
             CardKinds = new List<CardKind>();
             CardPhases = new List<CardPhase>();
+        }
+
+        /// <summary>
+        /// Darksun's logo was changed for 4th Edition, Draconomicon, Nightstalker and Dungeons. Online boosters use old logo.
+        /// </summary>
+        public bool HasDarkSunNewLogo()
+        {
+            return this.Booster.SortOrder >= 13 && this.Booster.SortOrder <= 16;
         }
     }
 }

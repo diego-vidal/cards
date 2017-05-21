@@ -11,7 +11,7 @@ namespace Spellfire.Web.Models
         public string SearchText { get; set; }
         [Display(Name = "Include Online Boosters")]
         public bool IncludeOnlineBoosters { get; set; }
-        public int SearchCount { get; set; }
+        public int MaxCardListCount { get; set; }
         public IEnumerable<Card> FilteredCards { get; set; }
         public IOrderedEnumerable<Card> SortedCards
         {
@@ -21,5 +21,10 @@ namespace Spellfire.Web.Models
             }
         }
         public Card SelectedCard { get; set; }
+
+        public HomeViewModel()
+        {
+            FilteredCards = new List<Card>();
+        }
     }
 }

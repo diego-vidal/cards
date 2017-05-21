@@ -14,5 +14,7 @@ namespace Spellfire.Model
         public string ShortName { get; set; }
         [StringLength(32)]
         public string ImagePath { get; set; }
+        [Required]
+        public int SortOrder { get; set; }
     }
 }

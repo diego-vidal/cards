@@ -1,9 +1,8 @@
 ﻿@using Spellfire.Model
+@using Spellfire.Common.Extensions
 @model Spellfire.Web.Models.HomeViewModel
 @{
-    var cardCountMessage = Model.SearchCount > Model.FilteredCards.Count()
-                            ? string.Format("Showing {0} of {1} cards for '{2}'", Model.FilteredCards.Count(), Model.SearchCount, Model.SearchText)
-                            : string.Format("{0} cards found for '{1}' ", Model.SearchCount, Model.SearchText);
+    var cardCountMessage = string.Format("Showing top {0} results for '{1}'", Model.FilteredCards.Count(), Model.SearchText);
 }
 
 <div id="resultsMessage">
@@ -13,13 +12,13 @@
     @foreach (var c in Model.SortedCards)
     {
         var cardType = c.CardKinds.Where(x => x.IsIcon).SingleOrDefault();
-        var icon = cardType != null && cardType.Kind != null ? cardType.Kind.IconPath : "blank.gif";
+        var icon = cardType != null && cardType.Kind != null ? cardType.Kind.IconPath : KindKey.None.GetDisplayDescription();
         
         <a href="#" class="selectable list-group-item" data-sequence="@c.SequenceNumber">
             <img src="~/Images/icons/small/@icon" alt=""/>
             [@c.Booster.ShortName] @c.Name</a>
     }
-    @if (Model.SearchCount > Model.FilteredCards.Count())
+    @if (Model.FilteredCards.Count() >= Model.MaxCardListCount)
     {
         <a href="#" class="list-group-item findMore">[Filter further if your card is not listed]</a>
     }

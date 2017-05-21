@@ -5,8 +5,8 @@
     <meta name="robots" content="noidex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="image/x-icon" href="~/Images/tsr.png" />
-    <link rel="icon" type="image/x-icon" href="~/Images/tsr.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/worlds/tsr.png" />
+    <link rel="icon" type="image/x-icon" href="~/Images/worlds/tsr.png" />
 
     <link href="~/Content/normalize.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -19,36 +19,55 @@
 
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 
-    <title>@ViewBag.Title</title>
+    <title>Spellfire - @ViewBag.Title</title>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>*@
+                </button>
                 <div id="logo" class="navbar-brand">
                     <img src="~/Images/spellfire.gif" class="logo" />
                 </div>
             </div>
-            @*<div class="navbar-collapse collapse">
-               <ul class="nav navbar-nav"></ul>
-            </div>*@
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="~/">Search</a></li>
+                    @if (Request.IsLocal)
+                    {
+                        <li><a href="~/Hand/Index/0">Rules</a></li>
+                        <li><a href="~/Hand/Index/1">Dungeons</a></li>
+                        <li><a href="~/Hand/Index/2">1-char Lv</a></li>
+                        <li><a href="~/Hand/Index/3">2-char Lv</a></li>
+                        <li><a href="~/Hand/Index/4">3-char Lv</a></li>
+                        <li><a href="~/Hand/Index/5">4-char Lv</a></li>
+                    }
+                    <li><a href="~/Login">Login</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <div id="container" class="container body-content">
         @RenderBody()
-        @*        
-        <hr />
-        <footer>
-            <p>Link, Inc. - &copy; @DateTime.Now.Year</p>
-        </footer>
-        *@
     </div>
+
+    @*    http://www.wizards.com/fankit/fantoolkitdnd.html*@
+    <footer class="footer">
+        <p>
+            This web site is not affiliated with, endorsed, sponsored, or specifically approved by
+            Wizards of the Coast LLC. This web site may use the trademarks and other intellectual
+            property of Wizards of the Coast LLC, which is permitted under Wizards' Fan Site Policy.
+            Spellfire Master the Magic&trade; and their logos are trademarks of Wizards of the Coast LLC in 
+            the United States and other countries. © 2009 Wizards. All Rights Reserved. For more information 
+            about Wizards of the Coast or any of Wizards' trademarks or other intellectual property, please 
+            visit their website at www.wizards.com
+        </p>
+    </footer>
 
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
@@ -56,11 +75,13 @@
     <script src="~/Scripts/amplify.min.js"></script>
 
     <script src="~/Scripts/app/common.js"></script>
+    <script src="~/Scripts/app/layout.js"></script>
     <script src="~/Scripts/app/notification.js"></script>
 
     <script>
         $(document).ready(function () {
             Spellfire.Notification.init();
+            Spellfire.Layout.init();
         });
     </script>
 

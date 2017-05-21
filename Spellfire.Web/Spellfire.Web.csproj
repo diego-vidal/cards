@@ -121,20 +121,23 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="css\card.css" />
-    <Content Include="css\index.css" />
+    <Content Include="css\home.css" />
     <Content Include="css\css3.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Icon.png" />
-    <Content Include="Images\tsr.png" />
+    <Content Include="Images\worlds\tsr.png" />
     <Content Include="Images\spellfire.gif" />
-    <Content Include="Images\worlds\add2.gif" />
-    <Content Include="Images\worlds\br.gif" />
-    <Content Include="Images\worlds\dl.gif" />
-    <Content Include="Images\worlds\ds.gif" />
-    <Content Include="Images\worlds\fr.gif" />
     <Content Include="Error.html" />
-    <Content Include="Images\worlds\rl.gif" />
+    <Content Include="Images\worlds\add.png" />
+    <Content Include="Images\worlds\add2.png" />
+    <Content Include="Images\worlds\br.png" />
+    <Content Include="Images\worlds\dl.png" />
+    <Content Include="Images\worlds\ds.png" />
+    <Content Include="Images\worlds\ds2.png" />
+    <Content Include="Images\worlds\fr.png" />
+    <Content Include="Images\worlds\gh.png" />
+    <Content Include="Images\worlds\rl.png" />
     <Content Include="robots.txt" />
     <None Include="Scripts\amplify-vsdoc.js" />
     <Content Include="Scripts\amplify.js" />
@@ -145,9 +148,10 @@
     <Content Include="Scripts\amplify\amplify.request.min.js" />
     <Content Include="Scripts\amplify\amplify.store.js" />
     <Content Include="Scripts\amplify\amplify.store.min.js" />
+    <Content Include="Scripts\app\home.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\app\card.js" />
+    <Content Include="Scripts\app\layout.js" />
     <Content Include="Images\icons\ally.gif" />
     <Content Include="Images\icons\artifact.gif" />
     <Content Include="Images\icons\blank.gif" />
@@ -190,10 +194,8 @@
     <Content Include="Images\icons\unarmedCombat.gif" />
     <Content Include="Images\icons\wizard.gif" />
     <Content Include="Images\icons\wizardSpell.gif" />
-    <Content Include="Images\worlds\add.gif" />
     <Content Include="Images\worlds\blank.gif" />
     <Content Include="Images\worlds\dr.png" />
-    <Content Include="Images\worlds\gh.gif" />
     <Content Include="Images\worlds\ns.png" />
     <Content Include="css\common.css" />
     <Content Include="Global.asax" />
@@ -233,10 +235,13 @@
     <Compile Include="Attributes\ErrorHandlerAttribute.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\HandController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HandViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -247,14 +252,17 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Card\Index.cshtml" />
-    <Content Include="Views\Card\_CardList.cshtml" />
-    <Content Include="Views\Card\_CardDetail.cshtml" />
+    <Content Include="Views\Shared\_CardList.cshtml" />
+    <Content Include="Views\Shared\_CardDetail.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
-    <Content Include="Views\Card\_CardVertical.cshtml" />
-    <Content Include="Views\Card\_CardRule.cshtml" />
-    <Content Include="Views\Card\_CardDungeon.cshtml" />
+    <Content Include="Views\Shared\_CardVertical.cshtml" />
+    <Content Include="Views\Shared\_CardRule.cshtml" />
+    <Content Include="Views\Shared\_CardDungeon.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\Shared\_CardFooter.cshtml" />
+    <Content Include="Views\Hand\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -266,6 +274,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Spellfire.BLL\Spellfire.BLL.csproj">
+      <Project>{f3bd4488-b15e-4794-bd9c-10b56aef7902}</Project>
+      <Name>Spellfire.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Spellfire.Common\Spellfire.Common.csproj">
       <Project>{aa89eaeb-69a5-4c53-8934-26991f34fa73}</Project>
       <Name>Spellfire.Common</Name>

@@ -20,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3045B2
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellfire.Security", "Spellfire.Security\Spellfire.Security.csproj", "{DC482385-E74F-4A0C-99CA-6AA7A154A5F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellfire.BLL", "Spellfire.BLL\Spellfire.BLL.csproj", "{F3BD4488-B15E-4794-BD9C-10B56AEF7902}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +54,14 @@ Global
 		{91CCD22C-7163-4663-958C-F5A0C198B205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91CCD22C-7163-4663-958C-F5A0C198B205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91CCD22C-7163-4663-958C-F5A0C198B205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC482385-E74F-4A0C-99CA-6AA7A154A5F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC482385-E74F-4A0C-99CA-6AA7A154A5F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC482385-E74F-4A0C-99CA-6AA7A154A5F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC482385-E74F-4A0C-99CA-6AA7A154A5F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3BD4488-B15E-4794-BD9C-10B56AEF7902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3BD4488-B15E-4794-BD9C-10B56AEF7902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3BD4488-B15E-4794-BD9C-10B56AEF7902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3BD4488-B15E-4794-BD9C-10B56AEF7902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

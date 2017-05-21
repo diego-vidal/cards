@@ -10,7 +10,6 @@ namespace Spellfire.Model
         [Required]
         public bool IsIcon { get; set; }
 
-        // Navigation
         public int CardKey { get; set; }
         public Card Card { get; set; }
 

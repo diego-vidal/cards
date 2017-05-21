@@ -34,6 +34,9 @@ namespace Spellfire.Dal
 
         public DbSet<Log> Logs { get; set; }
 
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserCard> UserCards { get; set; }
+
         /// <summary>
         /// This method is called when the model for a derived context has been initialized, but before the model has
         /// been locked down and used to initialize the context. The default implementation of this method does nothing,

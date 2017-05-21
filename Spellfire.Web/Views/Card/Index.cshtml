@@ -2,14 +2,14 @@
 @using Spellfire.Common.Extensions
 @model Spellfire.Web.Models.HomeViewModel
 @{
-    ViewBag.Title = "Spellfire Search";
+    ViewBag.Title = "Search";
 }
 
 <div style="padding: 10px 0 10px 0;">
     @Html.CheckBoxFor(m => m.IncludeOnlineBoosters, new { id = "includeOnlineBoosters" })
     @Html.LabelFor(m => m.IncludeOnlineBoosters, new { id = "includeOnlineBoostersLabel" })
     <div class="input-group" style="width: 280px;">
-        @Html.TextBoxFor(m => m.SearchText, new { value = Model.SearchText, @class = "form-control", placeholder = Model.GetPropertyDisplayPrompt(x => x.SearchText) })
+        @Html.TextBoxFor(m => m.SearchText, new { @class = "form-control", placeholder = Model.GetPropertyDisplayPrompt(x => x.SearchText) })
         <span id="search" class="input-group-addon">
             <i class="fa fa-search"></i>
         </span>
@@ -24,17 +24,17 @@
 
 @section Styles{
 
-    <link href="~/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/home.css" rel="stylesheet" type="text/css" />
     <link href="~/css/card.css" rel="stylesheet" type="text/css" />
 }
 
 @section Scripts{
 
-    <script src="~/Scripts/app/card.js"></script>
+    <script src="~/Scripts/app/home.js"></script>
 
     <script>
         $(document).ready(function () {
-            Spellfire.Card.init();
+            Spellfire.Home.init();
         });
     </script>
 }

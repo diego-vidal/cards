@@ -28,35 +28,242 @@
 }
 
 /**************************************************/
-#card {
-    margin: 30px 0 0 0;
+.hand {
+    margin-right: 10px;
+}
+
+img.ds {
+    width: 140px;
+}
+
+img.ds2 {
+    width: 110px;
+}
+
+.world {
+    width: 150px;
+}
+
+    .world.tsr {
+        width: 70px;
+    }
+
+.level {
+    font-size: 16pt;
+    position: relative;
+    top: 18px;
+    left: -41px;
+    color: white;
+}
+
+    .level.ally {
+        top: 16px;
+        left: -46px;
+        color: black;
+    }
+
+        .level.ally.char-three {
+            font-size: 14pt;
+            top: 18px;
+            left: -52px;
+        }
+
+    .level.artifact {
+        top: 17px;
+        left: -48px;
+    }
+
+        .level.artifact.char-three {
+            font-size: 14pt;
+            top: 18px;
+            left: -52px;
+        }
+
+        .level.artifact.char-four {
+            font-size: 9pt;
+            top: 25px;
+            left: -51px;
+        }
+
+    .level.blood-ability {
+        top: 24px;
+        left: -49px;
+        color: black;
+    }
+
+    .level.cleric {
+        top: 16px;
+    }
+
+        .level.cleric.char-two {
+            left: -49px;
+        }
+
+    .level.cleric-spell {
+        left: -49px;
+        color: black;
+    }
+
+    .level.hero {
+        left: -45px;
+        color: black;
+    }
+
+        .level.hero.char-two {
+            left: -52px;
+        }
+
+        .level.hero.char-three {
+            font-size: 14pt;
+            left: -55px;
+        }
+
+    .level.holding {
+        top: 4px;
+    }
+
+        .level.holding.char-two {
+            left: -48px;
+        }
+
+    .level.magical-item {
+        top: 30px;
+        left: -48px;
+    }
+
+        .level.magical-item.char-three {
+            font-size: 14pt;
+            left: -53px;
+        }
+
+        .level.magical-item.char-four {
+            font-size: 7pt;
+            top: 34px;
+            left: -50px;
+            width: 32px;
+        }
+
+    .level.monster {
+        top: 32px;
+    }
+
+        .level.monster.char-two {
+            left: -48px;
+        }
+
+        .level.monster.char-three {
+            font-size: 14pt;
+            left: -49px;
+        }
+
+    .level.psionicist {
+        top: 12px;
+        color: black;
+    }
+
+        .level.psionicist.char-two {
+            left: -50px;
+        }
+
+    .level.none {
+        display: none;
+    }
+
+    .level.psionic-power {
+        top: 12px;
+        left: -49px;
+        color: black;
+    }
+
+    .level.realm {
+        top: 34px;
+    }
+
+        .level.realm.char-two {
+            left: -52px;
+        }
+
+    .level.regent {
+        top: 24px;
+    }
+
+        .level.regent.char-two {
+            left: -48px;
+        }
+
+    .level.thief {
+        top: 32px;
+    }
+
+        .level.thief.char-two {
+            left: -50px;
+        }
+
+    .level.unarmed-combat {
+        top: 13px;
+        left: -48px;
+        color: black;
+    }
+
+        .level.unarmed-combat.char-three {
+            font-size: 14pt;
+            left: -53px;
+        }
+
+    .level.wizard {
+        top: 17px;
+    }
+
+        .level.wizard.char-two {
+            left: -48px;
+        }
+
+    .level.wizard-spell {
+        top: 17px;
+        left: -48px;
+        color: black;
+    }
+
+.blueline {
+    color: blue;
+}
+
+.card {
+    margin-top: 10px;
     padding: 20px;
     width: 300px;
     height: 400px;
     border: 3px solid black;
 }
 
-    #card .cardHeader { /* cardIcon + cardLevel */
+    .card .cardHeader { /* cardIcon + cardLevel */
         height: 80px;
         position: relative;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
     }
 
-    #card .cardRuleHeader { /* cardWorld + "Rule" */
+    .card .cardRuleHeader { /* cardWorld + "Rule" */
         height: 40px;
         position: relative;
     }
 
-    #card .cardTitle { /* cardWorld + cardName */
+    .card .cardTitle { /* cardWorld + cardName */
         height: 70px;
         position: relative;
     }
 
-    #card .cardRuleTitle { /* cardName */
-        height: 45px;
+    .card .cardTitle2 { /* cardWorld + cardName */
+        height: 50px;
         position: relative;
     }
 
-    #card .cardPower {
+    .card .cardRuleTitle { /* cardName */
+        height: 45px;
+    }
+
+    .card .cardPower {
         height: 190px;
         margin-bottom: 10px;
         position: relative;
@@ -64,67 +271,75 @@
         background-color: #fece9b;
     }
 
-    #card .cardRulePower {
+    .card .cardPower2 {
+        height: 210px;
+        margin-bottom: 10px;
+        position: relative;
+        padding: 5px;
+        background-color: #fece9b;
+    }
+
+    .card .cardRulePower {
         height: 255px;
         position: relative;
         padding: 5px;
         background-color: #fece9b;
     }
 
-    #card .cardFooter { /* cardRarity + cardBooster + cardNumber */
+    .card .cardFooter { /* cardRarity + cardBooster + cardNumber */
         height: 25px;
         position: relative;
         vertical-align: bottom;
         margin-top: 10px;
     }
 
-    /*****************************************************/
-
-    #card .cardIcon {
+    .card .cardWorld2 {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     }
 
-    #card .cardLevel {
-        font-size: 3em;
-    }
-
-    #card .cardWorld {
-        width: 50%;
-    }
-
-    #card .cardName {
+    .card .cardName {
         width: 50%;
         font-weight: bold;
         text-align: right;
     }
 
-    #card .cardRuleName {
+    .card .cardName2 {
         font-weight: bold;
         text-align: left;
     }
 
-    #card .cardRarity {
+    .card .cardRuleName {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .card .cardRarity {
         width: 10%;
         text-align: left;
     }
 
-    #card .cardBooster {
+    .card .cardBooster {
         width: 60%;
         text-align: center;
     }
 
-        #card .cardBooster img {
+        .card .cardBooster img {
             height: 25px;
         }
 
-    #card .cardNumber {
+    .card .cardNumber {
         width: 30%;
         text-align: right;
     }
 
-    #card .text-small {
+    .card .text-small {
         font-size: 11px;
     }
 
-    #card .text-medium {
-        font-size: 12px;
+    .card .text-medium {
+        font-size: 13px;
     }
