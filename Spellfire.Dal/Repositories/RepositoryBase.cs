@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -53,7 +50,8 @@ namespace Spellfire.Dal
             return Context.Set<TEntity>().SingleOrDefault(predicate);
         }
 
-        public TProperty LoadProperty<TProperty>(TEntity entity, Expression<Func<TEntity, TProperty>> propertyToLoad) where TProperty : class
+        public TProperty LoadProperty<TProperty>(TEntity entity, Expression<Func<TEntity, TProperty>> propertyToLoad)
+            where TProperty : class
         {
             if (entity == null)
             {
@@ -65,8 +63,8 @@ namespace Spellfire.Dal
             return propertyToLoad.Compile().Invoke(entity);
         }
 
-        public ICollection<TCollection> LoadCollection<TCollection>(TEntity entity, Expression<Func<TEntity, ICollection<TCollection>>> collectionToLoad,
-            Expression<Func<TCollection, bool>> filterExpression = null, params Expression<Func<TCollection, object>>[] includes) where TCollection : class
+        public ICollection<TCollection> LoadCollection<TCollection>(TEntity entity, Expression<Func<TEntity,
+            ICollection<TCollection>>> collectionToLoad, params Expression<Func<TCollection, object>>[] includes) where TCollection : class
         {
             if (entity == null)
             {
@@ -75,14 +73,14 @@ namespace Spellfire.Dal
 
             var collectionEntry = Context.Entry(entity).Collection(collectionToLoad);
 
-            if (filterExpression != null)
-            {
-                collectionEntry.Query().Where(filterExpression).AddIncludes(includes).Load();
-            }
-            else
-            {
+            //if (filterExpression != null)
+            //{
+            //    collectionEntry.Query().Where(filterExpression).AddIncludes(includes).Load();
+            //}
+            //else
+            //{
                 collectionEntry.Query().AddIncludes(includes).Load();
-            }
+            //}
 
             return collectionToLoad.Compile().Invoke(entity);
         }

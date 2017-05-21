@@ -7,7 +7,6 @@ namespace Spellfire.Model
         [Key]
         public int UserCardKey { get; set; }
 
-        // Navigation
         public int UserKey { get; set; }
         public User User { get; set; }
 

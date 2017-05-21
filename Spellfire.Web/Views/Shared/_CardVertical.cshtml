@@ -6,7 +6,7 @@
     var bluelineLength = Model.Blueline != null ? Model.Blueline.Length : 0;
     var completePowerLength = Model.Power.Length + bluelineLength;
     var powerClass = completePowerLength > 498 ? "text-small" : (completePowerLength > 324 ? "text-medium" : string.Empty);
-    var iconKind = Model.CardKinds.Single(x => x.IsIcon).Kind;
+    var iconKind = Model.CardKinds.Any() ? Model.CardKinds.Single(x => x.IsIcon).Kind : new Kind();
     var iconClass = iconKind.Name.ToLower().Replace(" ", "-");
     var levelClasses = Model.Level.Length > 3 ? "char-four" : (Model.Level.Length > 2 ? "char-three" : (Model.Level.Length > 1 ? "char-two" : string.Empty));
     // TODO: Remove once database has this info

@@ -165,6 +165,10 @@ img.ds2 {
             left: -50px;
         }
 
+    .level.none {
+        display: none;
+    }
+
     .level.psionic-power {
         top: 12px;
         left: -49px;

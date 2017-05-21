@@ -90,7 +90,7 @@ namespace Spellfire.Web.Controllers
                 return null;
             }
 
-            _dal.Cards.LoadCollection(card, c => c.CardKinds, null, c => c.Kind);
+            _dal.Cards.LoadCollection(card, c => c.CardKinds, c => c.Kind);
 
             return card;
         }

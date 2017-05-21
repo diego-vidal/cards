@@ -46,7 +46,7 @@ namespace Spellfire.Web.Controllers
 
                 foreach (var fc in filteredCards)
                 {
-                    _dal.Cards.LoadCollection(fc, c => c.CardKinds, null, c => c.Kind);
+                    _dal.Cards.LoadCollection(fc, c => c.CardKinds, c => c.Kind);
                 }
 
                 viewModel.MaxCardListCount = MaxCardListCount;
@@ -62,8 +62,8 @@ namespace Spellfire.Web.Controllers
 
             if (card != null)
             {
-                _dal.Cards.LoadCollection(card, c => c.CardCharacteristics, null, c => c.Characteristic);
-                _dal.Cards.LoadCollection(card, c => c.CardKinds, null, c => c.Kind);
+                _dal.Cards.LoadCollection(card, c => c.CardCharacteristics, c => c.Characteristic);
+                _dal.Cards.LoadCollection(card, c => c.CardKinds, c => c.Kind);
                 _dal.Cards.LoadCollection(card, c => c.CardPhases);
             }
 

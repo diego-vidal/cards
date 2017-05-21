@@ -7,7 +7,6 @@ namespace Spellfire.Model
         [Key]
         public int CardCharacteristicKey { get; set; }
 
-        // Navigation
         public int CardKey { get; set; }
         public Card Card { get; set; }
 

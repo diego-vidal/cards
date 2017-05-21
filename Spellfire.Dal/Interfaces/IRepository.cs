@@ -13,8 +13,8 @@ namespace Spellfire.Dal
         TEntity GetByKey(object key);
         TEntity GetSingleOrDefault(Func<TEntity, bool> predicate);
         TProperty LoadProperty<TProperty>(TEntity entity, Expression<Func<TEntity, TProperty>> propertyToLoad) where TProperty : class;
-        ICollection<TCollection> LoadCollection<TCollection>(TEntity entity, Expression<Func<TEntity, ICollection<TCollection>>> collectionToLoad,
-            Expression<Func<TCollection, bool>> filterExpression = null, params Expression<Func<TCollection, object>>[] includes) where TCollection : class;
+        ICollection<TCollection> LoadCollection<TCollection>(TEntity entity, Expression<Func<TEntity,
+           ICollection<TCollection>>> collectionToLoad, params Expression<Func<TCollection, object>>[] includes) where TCollection : class;
         void Update(TEntity entity);
         ICollection<TResult> Query<TResult>(Expression<Func<TEntity, TResult>> selector, Expression<Func<TEntity, bool>> predicate);
         ICollection<TResult> Query<TResult>(Expression<Func<TEntity, TResult>> selector, Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes);
