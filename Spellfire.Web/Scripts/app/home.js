@@ -25,6 +25,7 @@ Spellfire.Home = (function (module, $) {
         },
 
         attachHandlers: function () {
+            self.$container.on("click", ".btn-sequence", self.getCardDetails);
             self.$search.click(self.getCardList);
             self.$includeOnlineBoostersLabel.click(function () {
                 self.$includeOnlineBoosters.trigger("click");

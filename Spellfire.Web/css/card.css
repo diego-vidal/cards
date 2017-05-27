@@ -228,6 +228,12 @@ img.ds2 {
     color: blue;
 }
 
+.card-navigation {
+    margin-top: -44px;
+    margin-bottom: 73px;
+    width: 300px;
+}
+
 .card {
     margin-top: 10px;
     padding: 20px;
