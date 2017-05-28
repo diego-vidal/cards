@@ -2,7 +2,10 @@
 @using Spellfire.Common.Extensions
 @model Spellfire.Web.Models.HomeViewModel
 @{
-    var cardCountMessage = string.Format("Showing top {0} results for '{1}'", Model.FilteredCards.Count(), Model.SearchText);
+    var isFilteredResults = Model.FilteredCards.Count() >= Model.MaxCardCount;
+    var cardCountMessage = isFilteredResults
+        ? string.Format("Showing only top {0} cards for '{1}'", Model.FilteredCards.Count(), Model.SearchText)
+        : string.Format("{0} cards found for '{1}'", Model.FilteredCards.Count(), Model.SearchText);
 }
 
 <div id="resultsMessage">
@@ -18,7 +21,7 @@
             <img src="~/Images/icons/small/@icon" alt=""/>
             [@c.Booster.ShortName] @c.Name</a>
     }
-    @if (Model.FilteredCards.Count() >= Model.MaxCardListCount)
+    @if (isFilteredResults)
     {
         <a href="#" class="list-group-item findMore">[Filter further if your card is not listed]</a>
     }

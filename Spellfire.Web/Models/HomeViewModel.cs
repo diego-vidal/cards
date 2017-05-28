@@ -7,11 +7,13 @@ namespace Spellfire.Web.Models
 {
     public class HomeViewModel
     {
+        private const int _maxCardCount = 100;
+
         [Display(Prompt = "Type to search")]
         public string SearchText { get; set; }
         [Display(Name = "Include Online Boosters")]
         public bool IncludeOnlineBoosters { get; set; }
-        public int MaxCardListCount { get; set; }
+        public int MaxCardCount { get { return _maxCardCount; } }
         public IEnumerable<Card> FilteredCards { get; set; }
         public IOrderedEnumerable<Card> SortedCards
         {
